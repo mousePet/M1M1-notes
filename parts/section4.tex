@@ -1,0 +1,213 @@
+\section{Graphs}
+\begin{df}
+The graph of a function $f$ is defined by $y=f(x)$
+\end{df}
+\begin{df}
+$a \in \dom (f)$ is a \emph{stationary point} if $f'(a) = 0$
+\end{df}
+\begin{rk}
+A stationary point can be a local minimum, a local maximum or a point of inflection with horizontal tangent.
+\end{rk}
+Suppose $a$ is a stationary point.
+\begin{enumerate}
+\item
+If $f''(a) > 0$, then $a$ is a local minimum
+\item
+If $f''(a) < 0$, then $a$ is a local maximum
+\item
+If $f''(a) = 0$ gives no information.
+\end{enumerate}
+This test is called the 2nd Derivative Test.
+\begin{ex}
+\begin{align*}
+f(x) & = x^4 \\
+f'(x) & = 4x^3
+\end{align*}
+$x=0$ is a stationary point because
+$f''(x) = 12 x^2 =0$.
+\end{ex}
+
+\emph{Geometrical definition.}
+A point of inflection is a point where the graph crosses its own tangent
+
+A sufficient condition for a point of inflection $(p_0, I)$ is:
+If $f''(a) = 0 $ and $f'''(0) \neq 0$, then $a$ is a point of inflection.
+This is not a necessary condition.
+
+\begin{ex}
+\begin{align*}
+f(x) & = x^5 \\
+f'(x) & = 5x^4 \\
+f''(x) & = 20x^3 \\
+f'''(x) & = 60x^2
+\end{align*}
+The sufficient condition does not work for this example at $x=0$ but $(0,0)$ is a point of inflection.
+\end{ex}
+A point of inflection is not necessarily a stationary point.
+\begin{ex}
+\begin{align*}
+f(x) & = x^4 -2x^2 \\
+f'(x) = 4x^3 -4x & = 4x \left(x^2-1 \right) \\
+& = 4x(x-1)(x+1)
+\end{align*}
+There are 3 stationary points at $x=0$ and $x = \pm 1$.
+\begin{align*}
+f''(x) & = 12 x^2 -4 \\
+f''(0) & = -4 <0
+\end{align*}
+So $x=0$ is a local maximum. Furthermore,
+\begin{align*}
+f''(\pm 1) = 12 - 4 = 8 > 0
+\end{align*}
+Hence, $x = \pm 1$ is a local minimum. Consider the following equation to find points of inflection
+\begin{align*}
+f''(x) = 12x^2 - 4 = 0 
+\end{align*}
+This holds if $x^2 = \frac 1 3$. i.e. $x = \pm 1 /\sqrt 7$ are points of inflection since $f'''(x) = 24x \neq 0$ at these points.
+\end{ex}
+
+\subsection{Curve sketching}
+There is no correct way to sketch the graph of a function -- in some cases the graph is too complicated to sketch it by hand. In this case try using a computer.
+(e.g. Riemann's Lacunary Fourier series.)
+However, the following often helps:
+\begin{enumerate}
+\item
+Does the graph have any special features (e.g. odd, even or periodic)?
+\item
+Does the graph intersect the $x$ or $y$ axes?
+\item
+Does the graph have stationary points or points of inflection?
+\item
+Does the graph have linear asymptotes?
+\end{enumerate}
+Rational functions often have linear asymptotes.
+\begin{ex}
+\begin{align*}
+f(x) = \frac{x^3}{1-x^2}
+\end{align*}
+\begin{itemize}
+\item
+At $x = \pm 1$ the graph has vertical asymptotes. 
+\item
+For $x \to \pm \infty$ the graph has the linear asymptote $y= x $.
+\item
+For $x$ small $f(x) \approx x^3$.
+\end{itemize}
+\end{ex}
+
+
+\subsubsection{Polar Coordinates}
+We can represent curves via functions, equations or parametrically -- yet another way is through polar coordinates.
+The Idea is to replace the cartesian coordinates $x$ and $y$ with polar coordinates $r$ and $\theta$. $r$ is the distance to the origin, $\theta$ is the angle measured anti-clockwise from the x axis. Replacing $\theta$ by $\theta +2 \pi$ has no effect.
+\begin{align*}
+x = r \cos \theta, \qquad y = r \sin \theta
+\end{align*}
+
+Now we are able to represent curves using equations involving $r$ and $\theta$ instead of $x$ and $y$.
+
+\begin{ex}
+\begin{itemize}
+\item
+If $r$ is a constant greater than 0, the equations represent a circle.
+\item
+Let $l$ be a positive constant and $e$ be a non-negative constant.
+\begin{align*}
+r = \frac l {1+e \cos \theta}
+\end{align*}
+gives a conic section where $e$ is the 'eccentricity'.
+\end{itemize}
+\end{ex}
+
+\subsubsection{Conic sections}
+
+In general consider $A x^2 + Bxy +Cy^2 + Dx + Ey + F = 0$, where $A, B, C, D, E, F$ are constants.
+
+Degenerate cases are:
+\begin{itemize}
+\item
+point $x^2 + y^2 = 0$ 
+\item
+line $y=0$
+\item
+two lines $x^2 - y^2 = 0 \Leftrightarrow x = \pm y$
+\item
+two parallel lines
+\end{itemize}
+
+All other possibilities are of three types
+ellipse, parabola, hyperbola.
+\begin{df}
+An \emph{ellipse} is a curve defined by 
+\begin{align*}
+\frac {x^2}{a^2} + \frac{y^2}{b^2} = 1
+\end{align*}
+or any translation or rotation of this curve. $a=b$ reduces to a circle.
+\end{df}
+
+
+\begin{df}
+A Parabola is a curve of the form
+\begin{align*}
+y = a x^2
+\end{align*}
+or any translation or rotation of this curve.
+\end{df}
+
+\begin{df}
+A Hyperbola is a curve of the form
+\begin{align*}
+\frac {x^2}{a^2} - \frac{y^2}{b^2} = 1
+\end{align*}
+or any translation or rotation of this curve.
+\end{df}
+
+The equation
+\begin{align*}
+r = \frac l {1+e \cos \theta}
+\end{align*}
+\begin{itemize}
+\item
+gives us an ellipse for $0 \leq e < 1$.
+\item
+gives us a parabola for $e=1$.
+\item
+gives us a hyperbola for $e>1$.
+\end{itemize}
+Set $l=1$ for all cases:
+To obtain the equation for a parabola set $e =1$:
+\begin{align*}
+r = \frac 1 {1+ \cos \theta}
+\end{align*}
+To obtain the equation for a parabola set $e = \frac 1 2$:
+\begin{align*}
+r = \frac 1 {1+ \frac 1 2 \cos \theta}
+\end{align*}
+To obtain the equation for a parabola set $e =2$:
+\begin{align*}
+r & = \frac 1 {1+ 2 \cos \theta} \\
+-\frac{2 \pi} 3 & < \theta < \frac{2 \pi} 3
+\end{align*}
+
+There are two different conventions for dealing with negative $r$:
+\begin{enumerate}
+\item
+Discard any $\theta$ values leading to negative $r$.
+\item
+Retain $\theta$ values leading to negative $r$.
+\begin{align*}
+x = r \cos \theta \qquad y = r \sin \theta
+\end{align*}
+Allow $r$ to be negative. In case of $r$ negative, flip the sign of $r$, i.e. flip the sign of $x$ and $y$. This is equivalent to shifting $\theta$ by $\pi$ (or $-\pi$)
+\begin{align*}
+\sin(\theta \pm \pi) & = \sin \theta \\
+\cos(\theta \pm \pi) & = \cos \theta
+\end{align*}
+Using this prescription
+\begin{align*}
+r = \frac l {1+ e \cos \theta}
+\end{align*}
+gives a full hyperbola (both branches) for $e>1$.
+\end{enumerate}
+
+
+

@@ -1,0 +1,610 @@
+\section{Integration}
+\begin{df}
+	There are 3 approaches to integrals:
+	\begin{enumerate}
+		\item
+		\emph{Geometrical approach} \\
+		Define symbol
+		\begin{align*}
+		\int_a^b f(x) dx, \qquad b>a 
+		\end{align*} as an area under the graph $y = f(x)$ between $x=a$ and $x=b$. If the graph falls below the x-axis, the area above the graph and below the x-axis counts negatively.
+		\item
+		\emph{Analytical approach} \\
+		Riemann integral
+		Start with a partition $P$ of the interval $a \le x \le b$. Consider any numbers
+		\begin{align*}
+		x_1, x_2, \dots x_{N-1}
+		\end{align*}
+		with the property
+		\begin{align*}
+		a < x_1 < x_2 < \dots < x_{N-1} < b.
+		\end{align*}
+		We can write $x_0 = a$ and $x_N = b$. The upper Riemann sum is
+		\begin{align*}
+		U(f,P) = \sum_{i=1}^N p_i (x_i - x_{i-1})
+		\end{align*}
+		where $p_i = \sup \{ f(x) | x_i > x > x_{i-1} \}$. We define the lower Riemann sum
+		\begin{align*}
+		L(f,P) = \sum_{i=1}^N q_i (x_i - x_{i-1})
+		\end{align*}
+		where $q_i = \inf \{ f(x) | x_i > x > x_{i-1} \}$. Clearly
+		\begin{align*}
+		U(f,P) \ge L(f,P).
+		\end{align*}
+		Define the upper Riemann integral as
+		\begin{align*}
+		\overline{\int_a^b} f(x) ~ dx = \inf_P U(f,P).
+		\end{align*}
+		Define the lower Riemann integral as
+		\begin{align*}
+		\underline{\int_a^b} f(x) ~ dx = \sup_P L(f,P).
+		\end{align*}
+		If both integrals exist and are equal to each other, we say that the function is Riemann integrable and the value of the Riemann integral is equal to them.
+		\item
+		\emph{Fundamental Theorem of Calculus approach} \\
+		Suppose
+		\begin{align*}
+		F'(x) = f(x)
+		\end{align*}
+		then
+		\begin{align*}
+		\int_a^b f(x) dx = F(b) - F(a)
+		\end{align*}
+	\end{enumerate}
+\end{df}
+
+\begin{proof}
+	Suppose that $F'(x) = f(x)$. Furthermore, let $P$ be any partition of $[a,b]$, $a=x_0 < x_1 < \dots < x_{N-1} < x_N = b$. Then
+	\begin{align*}
+	F(b) - F(a) & = F(x_N) - F(x_{N-1}) + F(x_{N-1}) - F(x_{N-2}) + \dots + F(x_1) - F(x_0) \\
+	& = \sum_{i=1}n (F(x_i) - F(x_{i-1})) \\
+	& = \sum_{i=1}^n \frac{F(x_i) - F(x_i-1)}{x_i-x_{i-1}} \cdot (x_i - x_i-1)
+	\end{align*}
+	Use the mean value theorem.
+	\begin{align*}
+	\sum_{i=1}^N F'(c_i) (x_i - x_{i-1}) \\
+	= \sum_{i=1}^N f(c_i) (x_i - x_{i-1})
+	\end{align*}
+	where $c_i$ is between $x_i$ and $x_{i-1}$. By definition
+	\begin{align*}
+	q_i \le f(c_i) \le p_i \\
+	L(f,p) \le F(b) - F(a) \le U(f,p)
+	\end{align*}
+	For all partitions $P$. If $f$ is Riemann integrable then $F(b) - F(a) = \int_a^b f(x) dx$.
+\end{proof}
+
+\begin{ex}
+	\begin{itemize}
+		\item
+		Geometrically, it can be seen that
+		\begin{align*}
+		\int_{-1}^1 \sqrt{1-x^2} = \frac \pi 2
+		\end{align*}
+		as it is half the area below the unit circle.
+		\item
+		Similarly, it is obvious that
+		\begin{align*}
+		\int_{-\pi}^\pi \sin x~ dx = 0
+		\end{align*}
+		Since the area below the x-axis is the same as above.
+		\item
+		Let
+		\begin{align*}
+		f(x) = \left\{ \begin{array}{ll}
+		1, & x \not \in \Q \\
+		0, & x \in \Q
+		\end{array}
+		\right. .
+		\end{align*}
+		Then the Riemann integral
+		\begin{align*}
+		\int_0^1 f(x) ~dx
+		\end{align*}
+		does not exist since
+		\begin{align*}
+		1 = \overline{\int_0^1} f(x) ~ dx \neq \underline{\int_0^1} f(x) ~ dx = 0.
+		\end{align*}
+		\item
+		The integral
+		\begin{align*}
+		\int_0^1 x^2 ~dx = \frac 1 3
+		\end{align*}
+		can be calculated by the Riemann definition by approximating the area with rectangles but needs a long time.
+	\end{itemize}
+\end{ex}
+
+\begin{df}
+	An \emph{indefinite Integral} written
+	\begin{align*}
+	\int f(x) ~dx
+	\end{align*}
+	is the set of functions such that
+	\begin{align*}
+	\frac d {dx} \int f(x)~ dx = dx.
+	\end{align*}
+	To emphasize that a set of function is meant, it is customary to include a constant of integration in tables of indefinite integrals.
+\end{df}
+
+\subsection{Basic Integrals}
+\begin{center}
+\begin{tabularx}{.5\textwidth}{XX}
+	\toprule
+	$f(x)$ & $\displaystyle \int f(x) ~dx$ \\
+	\toprule 
+	$x^n$ & $\displaystyle \frac{x^{n+1}} {n+1} + C$ \\
+	$\frac 1 x$ & $\displaystyle \log |x| +C$ \\
+	\midrule
+	$\cos x$ & $\displaystyle -\sin x+C$ \\
+	$\sin x$ & $\displaystyle \cos x + C$ \\
+	$\sec^2 x$ & $\displaystyle \tan x + C$ \\
+	\midrule
+	$e^x$ & $\displaystyle e^x + C$ \\
+	\midrule
+	$\cosh x$ & $\displaystyle \sinh x+C$ \\
+	$\sinh x$ & $\displaystyle \cosh x+C$ \\
+	\midrule
+	$\displaystyle \frac 1 {1+x^2}$ & $\displaystyle \tan^{-1} x+C$ \\
+	$\displaystyle \frac 1 {v+x^2}$ & $\displaystyle \frac 1 {\sqrt v} \tan^{-1} \frac x {\sqrt v} +C$ \\
+	$\displaystyle \frac 1 {\sqrt{1-x^2}}$ & $\displaystyle \sin^{-1} x+C$ \\
+	\midrule
+	$\displaystyle \frac 1 {\sqrt{1+x^2}} $ & $\sinh^{-1}(x) +C$ \\
+	$\displaystyle \frac 1 {1-x^2}$ & $\tanh^{-1}(x)+C$ \\
+	\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Integration Techniques}
+General techniques are
+\begin{enumerate}
+	\item
+	\emph{Inspection} 
+	\begin{ex}
+		\begin{itemize}
+			\item
+			If 
+			\begin{align*}
+			f(x) = \frac{g'(x)}{g(x)}
+			\end{align*}
+			then
+			\begin{align*}
+			\int f(x) ~ dx = \log g(x) +C.
+			\end{align*}
+			\item
+		\begin{align*}
+			\int x e^{-x^2} ~ dx = e^{-x^2} +C 
+		\end{align*}
+		\item
+		\begin{align*}
+		\int (4+x)^{\frac 1 5} ~ dx = \frac 5 6 (4+x)^{\frac 6 5} +C
+		\end{align*}
+		\item
+		\begin{align*}
+		\int \frac x {1+x^2} ~dx = \frac 1 2 \log (1+x^2) +C
+		\end{align*}
+		\item
+		\begin{align*}
+		\int \frac{dx}{\cos x } & = \int \frac{\cos x}{\cos^2 x} ~dx \\
+		& = \frac{\cos x }{1-\sin^2 x} ~dx 
+		\end{align*}
+		Let us first consider
+		\begin{align*}
+		\int \frac{\cos x }{1+ \sin^2 x} ~dx = \tan^{-1}(\sin x).
+		\end{align*}
+		Now it is easy to spot that 
+		\begin{align*}
+		\frac{\cos x }{1-\sin^2 x} ~dx = \tanh^{-1}(\sin x).
+		\end{align*}
+	\end{itemize}
+	\end{ex}
+	\item
+	\emph{Integration by parts} \\
+	The product rule for differentiation is
+	\begin{align*}
+	\frac d {dx} uv = u'v + uv'.
+	\end{align*}
+	Rewrite that as
+	\begin{align*}
+	\int (u'v + uv')~ dx = uv + C
+	\end{align*}
+	or
+	\begin{align*}
+	\int uv' ~dx = uv - \int u'v ~dx
+	\end{align*}
+	which is the integration by parts formula. The method is only useful if the second integral is easier to compute than the first one. It is natural to apply the method to products but there are exceptions.
+	\begin{ex}
+		\begin{itemize}
+			\item
+		\begin{align*}
+		\int \underbrace{x}_u \underbrace{e^x}_v ~dx & = xe^x - \int 1 e^x ~dx\\
+		& = xe^x-e^x +c \\
+		v' = e^x & \quad u = x \\
+		v = e^x & \quad u'= 1
+		\end{align*}
+		\item
+		\begin{align*}
+		\int \underbrace{x^2}_u \underbrace{e^x}_v ~dx & = x^2e^x - \int (2x) e^x ~dx\\
+		v = e^x & \quad  u'= x
+		\end{align*}
+		and this has already been computed in the example above.
+		\item
+		\begin{align*}
+		\int \underbrace{x}_{v'} \underbrace{\tan^{-1} x}_u ~ dx & = uv - \int u' v ~dx \\
+		& = \frac{x^2} 2 \tan^{-1} x - \int \frac{\frac 1 2 x^2}{1+x^2} ~dx \\
+		& = \frac {x^2} 2 \tan^{-1} - \frac 1 2  \int \frac{(1+x^2)-1}{1+x^2} ~dx \\
+		u' = \frac 1 {1+x^2} & \quad v = \frac{x^2} 2 \\
+		& = \frac{x^2} 2 \tan^{-1} x - \frac 1 2 x + \frac {\tan^{-1}}{ x} + C \\
+		& = \left( \frac{x^2} 2 + \frac 1 x \right) \tan^{-1} x - \frac 1 2 x +C
+		\end{align*}
+	\end{itemize}
+	\end{ex}
+	\item
+	\emph{Substitution} or \emph{Change of Variables}
+	\begin{align*}
+	\int_a^b f(x) dx
+	\end{align*}
+	The Idea is to replace $x$ with a function of a new variable $u$. Write $x = h(u)$ where $u$ is a new variable.
+	\begin{align*}
+	\int_{h(c)}^{h(d)} f(x) dx = \int_c^d f(h(u)) \frac{d h(u)}{du} du
+	\end{align*}
+	To derive this apply the Fundamental theorem of calculus to $F(h(u))$.
+	\begin{align*}
+	\frac d {du} F(h(u)) & = F'(h(u)) h'(u) \\
+	& = f(h(u)) h'(u) \\
+	\int_c^d f(h(u)) h'(u) du  & = F(h(d)) - F(h(c)) \\
+	& = \int_{h(c)}^{h(d)} f(x) dx
+	\end{align*}
+	If $h$ is invertible set $d = h^{-1}(b)$ and $c = h^{-1} (a)$
+	\begin{align*}
+	\int_a^b f(x) \int_{h^{-1}(a)}^{h^{-1}(b)} f(h(u)) \frac{d h(u)}{du} du
+	\end{align*}
+	This can be rewritten as
+	\begin{align*}
+	\int_a^b f(x) dx = \int_{u(a)}^{u(b)} f(x(u)) \frac{dx(u)}{du} du
+	\end{align*}
+	$x = x(u)$, $u = u(x)$ inverse function. For an indefinite integral
+	\begin{align*}
+	\int f(x) dx =  f(x(u)) \frac{dx(u)}{du} du
+	\end{align*}
+	$f(x)$ has to be replaced $f(x(u))$, $x$ with $x(u)$ and $dx$ with $\frac {dx}{du}$. Furthermore we integrate with respect to $u$. In the end the expression has to be rewritten back in $x$.
+	\begin{nex}
+			\item
+			\begin{itemal}
+		\int \frac{dx}{1+x^2} & = \int du = u + c &
+		x = \tan u, \quad u & = \tan^{-1} x \\
+		\frac 1 {1+x^2} & = \frac 1 {1+\tan^2 u} = \frac 1 {\sec^2 u} \\
+		& = \cos^2 u \\
+		dx & = \frac{dx}{du} ~du = \sec^2 u ~du
+		\end{itemal}
+		\item
+		\hfill$\begin{aligned}[t]
+		\int \sqrt{1+x^2}~dx & = \int \sqrt{1+ \sinh^2 u} \cosh u~du
+		& x = \sinh u, \quad dx = \cosh u ~du \\
+		& = \int \cosh^2 u ~du \\
+		& = \int \frac {1+\cosh 2u} 2 ~du \\
+		& = \frac u 2 + \frac{\sinh 2u}{4} +C \\
+		& = \frac{\sinh^{-1} x} 2 + \frac{2 \sinh u \cosh u}{4} +C \\
+		& = \frac 1 2 \sinh^{-1}x + \frac 1 2 x \sqrt{1+x^2} +C
+		\end{aligned}$\hfill\null
+		\item
+		If $f(x)$ is rational in $\sin x$ or $\cos x$ or both, use a substitution $x=2\tan^{-1}$ or $u = \tan \frac x 2$.
+		\begin{align*}
+		\sin x & = \frac{2u}{1+u^2} \\
+		\cos x & = \frac{1-u^2}{1+u^2} \\ 
+		dx & = \frac{2 du}{1+u^2}
+		\end{align*}
+		Let us consider a particular integral:
+		\begin{align*}
+		\int \frac 1 {\sin x} dx & = \int \frac {\frac 2 {1+u^2}}{\frac{2u}{1+u^2}} du \\
+		& = \int \frac{du} u \\
+		& = \log u \\
+		& = \log \left( \tan \frac x 2 \right) +C
+		\end{align*}
+	\end{nex}
+\end{enumerate}
+Techniques which can be very helpful in particular situation but are not as general as the ones above are:
+\begin{enumerate}[resume]
+	\item
+	\emph{Partial Fractions} (for rational functions) \\
+	Partial fractions are useful if the function is rational, i.e. of the form $\frac{P(x)}{Q(x)}$ where $P$ and $Q$ are polynomials.
+	
+	The simplest case is the one where the order of $P$ is less than the order of $Q$ and $Q$ has no repeated roots. So
+	\begin{align*}
+	Q(x) = c (x-a_1)(x-a_2) \dots (x-a_n)
+	\end{align*}
+	where $a_1, a_2, \dots a_n$ are distinct. Then $f(x) $ can be written in the form
+	\begin{align*}
+	\frac{c_1}{x-a_1} + \frac{c_2}{x-a_2}+ \dots +\frac{c_n}{x-a_n}.
+	\end{align*}
+	\begin{nex}
+			\item
+		\begin{itemal}
+			\frac{x+1}{x(x-1)(x-2)} = \frac {c_1} x + \frac {c_2} {x-1} + \frac {c_3} {x-2}
+		\end{itemal}
+		In order to work out the coefficients we can use the \emph{cover-up rule}. This means that we set $x$ to the root in the denominator of the respective fraction and evaluate the original fraction for this $x$, \emph{covering up the term involving the respective root}. For our example we get
+		\begin{align*}
+		\frac{x+1}{x(x-1)(x-2)} & = \frac {\frac{0+1}{(0-1)(0-1)}} x + \frac {\frac 2 {1\cdot(-1)}} {x-1} + \frac {\frac 2 {2 \cdot 1}} {x-2} \\
+		& = \frac 1 {2x} + \frac {-2}{x-1} + \frac 3 {2(x-2)} 
+		\end{align*}
+		So
+		\begin{align*}
+		\int \frac{x+1}{x(x-1)(x-2)} ~dx = \frac 1 2 \log x - 2 \log(x-1) + \frac 3 2 \log(x-2) +C
+		\end{align*}
+		\item
+		\begin{itemal}
+			\int \frac{dx}{1+x^2} & = \int \frac 1 {2i}\left(\frac 1 {x-i} - \frac 1 {x+i} \right) \\
+			& = \frac 1 {2i} ( \log (x-i) - \log (x+i) ) \\
+			& = \frac 1 {2i} \left( \log \frac{x-i}{x+i} \right) \\
+			& = \frac 1 {2i} \left( \log \frac{1+ix}{1-ix} \right) + C
+		\end{itemal}
+		\item
+		If there are complex roots it may seem easier to avoid partial fractions:
+		\begin{align*}
+		\frac 1 {1+x^2} = \frac{Ax+B}{1+x^2} +\frac c x
+		\end{align*}
+	\end{nex}
+	Let us now consider some examples with non-distinct roots:
+	\begin{nex}
+		\begin{align*}
+		\frac 1 {(x-1)^2 (x-2)} & = \frac 1 {x-1} \cdot \frac 1 {(x-1)(x-2)} \\
+		& = \frac 1 {x-1} \left( \frac {-1}{x-1} + \frac 1 {x-2} \right) \\
+		& = - \frac 1 {(x-1)^2} + \frac 1 {(x-1)(x-2)} \\
+		& = - \frac 1 {(x-1)^2} - \frac 1 {x-1} + \frac 1 {x-2}
+		\end{align*}
+	\end{nex}
+	If the order of $P$ is greater or equal to the order of $Q$ Write
+	\begin{align*}
+	P(x) = A(x) Q(x) + R(x)
+	\end{align*}
+	where $A$ is a polynomial and $R$ is the remainder polynomial whose order is less than the order of $Q$.
+	\begin{nex}
+		\begin{itemal}
+			f(x) = \frac{x^3}{x^2-1} \\
+			x^3 = x(x^2-1) +x
+		\end{itemal}
+	\end{nex}
+	\item
+	\emph{Using Complex Numbers} \\
+	\begin{nex}
+		\item
+		\begin{itemal}
+			\int_{-\pi}^{\pi} \cos^4 x ~ dx
+		\end{itemal}
+		Using $\cos = \frac 1 2(e^{ix} + e^{-ix})$ we get
+		\begin{align*}
+		\cos^4 x = \frac 1 {2^4} ( e^{4ix} + 4e^{2ix} + 6 + 4^{-2ix} + e^{-4ix}
+		\end{align*}
+		Because $\int_{-\pi}^{\pi} e^{inx} ~dx =0$ if $n$ is a non zero integer we can simplify our integral to 
+		\begin{align*}
+		\frac 1 {2^4} \int_{-\pi}^{\pi}  6 ~dx & 	= \frac{12 \pi }{16} \\
+		& = \frac 3 4 \pi
+		\end{align*}
+		\item
+		\begin{itemal}
+		& \int_{-\pi}^{\pi} \cos^{2n} x ~dx, \qquad n \in \N \\
+		= & \int_{-\pi}^{\pi}  \frac 1 {4^n} \left( e^{2i nx} + \binom {2n} 1 e^{2i(n-1)x} + \dots + e^{-2 i nx} \right)
+		\end{itemal}
+		All exponential integrate to zero. The only remaining term is the constant $\frac 1 {4n} \binom{2n} n$:
+		\begin{align*}
+		\int_{-\pi}^{\pi} \cos^{2n} x & = \frac{2 \pi}{4^n} \binom{2n} n \\
+		& = \frac{2\pi} {4^n} \frac{(2n)!}{(n!)^2}
+		\end{align*}
+		where $n$ is a positive integer.
+		\item
+		\begin{itemal}
+			\int_{-\pi}^{\pi}  \cos^{2n} x ~dx = \frac{2 \pi}{4^n} \frac{\Gamma(2n+1)}{(\Gamma(n+1))^2}
+		\end{itemal}
+	\end{nex}
+	\item
+	\emph{Differentiation under the Integral} \\
+	\begin{nex}
+		\item
+		\begin{itemal}
+		\int x^n e^x ~dx
+		\end{itemal}
+		Consider instead this integral:
+		\begin{align*}
+		\int x^n e^{ax}~dx
+		\end{align*}
+		We use $x^ne^{ax} = \frac {d^n}{da^n} e^{ax}$:
+		\begin{align*}
+		\int x^n e^{ax} ~dx & = \frac{d^n}{da^n} \int e^{ax}~dx \\
+		& = \frac{d^n}{da^n} \left( \frac {e^{ax}} a +C\right) \\
+		\end{align*}
+		We use Leibniz rule and get
+		\begin{align*}
+		& \frac{d^n}{da^n} \underbrace{a{-1}}_{u(a)} \underbrace{e^{ax}}_{v(a)} \\
+		u^{(n)}(a) = (-1)^n a^{-1-n} n! & \qquad
+		v^{(n)} (a) = x^n e^{ax} \\
+		\int x^n e^{ax}~dx & = \sum_{m=0}^n \binom n m u^{(m)}(a) v{(n-m)}(a) \\ 
+		& = \sum_{m=0}^n \binom n m (-1)^m a^{-1-m} m! x^{n-m} e^{ax} \\
+		& = \sum_{m=0}^n \frac 1 {(n-m)!} (-1)^n a^{-1-m} x^{n-m} +C
+		\end{align*}
+		\item
+		Another application is
+		\begin{align*}
+		\int_0^\pi \frac{dx}{a-\cos x} = \frac 1 2 \frac {d^2}{da^2} \int_0^\pi \frac {dx}{a-\cos x} ~dx
+		\end{align*}
+		We use the tangens substitution
+		\begin{align*}
+		u & = \tan \frac x 2 \\
+		dx & = \frac{2du}{1+u^2} \\
+		\cos x & = \frac{1-u^2}{1+u^2}.
+		\end{align*}
+	\end{nex}
+\end{enumerate}
+
+\subsection{Definite Integrals and Improper Integrals}
+\begin{nex}
+	\item
+	A definite integral is
+	\begin{align*}
+		\int_0^1 e^x dx
+	\end{align*}
+	We use anti-derivative
+	\begin{align*}
+	\int_0^1 e^x ~dx = [e^x]_0^1 
+	\end{align*}
+	where
+	\begin{align*}
+	[F(x)]_a^b
+	\end{align*}
+	means 
+	\begin{align*}
+	F(a) = F(b)
+	\end{align*}
+	\item
+	Improper integrals are integrals such as 
+	\begin{align*}
+	& \int_{-\infty}^\infty e^{-x^2} ~ dx \\
+	& \int_0^\infty \frac{\sin x}{x} \\
+	& \int_0^1 x^{-\frac 1 2}~dx
+	\end{align*}
+	with infinite limits or unbounded integrands.
+\end{nex}
+
+
+\begin{align*}
+\int \frac{dx}{(a+x^2)^2} & = - \frac d {da} \int \frac{dx}{a+x^2}\qquad x = \tan u  \\
+& = -\frac{d}{da} \cdot \frac{1}{\sqrt{a}} \tan^{-1} \frac{x}{\sqrt{a}}
+\end{align*}
+
+The method relies on order independence of partial differentiation:
+\begin{align*}
+\frac{\delta}{\delta x} \cdot \frac{\delta}{\delta a} f(x,a) = \frac{\delta}{\delta a} \cdot \frac{\delta}{\delta x} f(x,a)
+\end{align*}
+
+\begin{df}
+\emph{Improper integrals} are integrals with infinite limits or integrals with unbounded integrands.
+\end{df}
+\begin{nex}
+	\begin{itemal}
+		\int_{-\infty}^{\infty} e^{-x^2} ~dx \\
+		\int_0^1 x^{-\frac 1 2} ~dx
+	\end{itemal}
+\end{nex}
+
+Such integrals can be understood as limits of Riemann integrals.
+\begin{align*}
+\int_a^\infty f(x) ~dx = \lim_{b\to \infty} \int_a^b f(x) ~dx \\
+\end{align*}
+
+\begin{nex}
+	\item
+	\begin{itemal}
+		\int_0^\infty e^{-x} ~dx & = \lim_{b\to\infty} \int_0^b e^{-x}~dx \\
+		& = \lim_{b\to\infty} \left[-e^{-x} \right]_0^b \\
+		& = \lim_{b\to\infty} \left( -e^{-b} +1 \right) \\
+		& = 1
+	\end{itemal}
+	\item
+	\begin{itemal}
+		\int_0^1 x^{-\frac 1 2} ~dx & = \lim_{a\to0^+} \int_a^1 x^{-\frac 1 2} ~dx \\
+		& = \lim_{a\to0^+} [2x^{\frac 1 2}]_a^1 \\
+		& = \lim_{a\to0^+} (2-2a^{\frac 1 2}) = 2
+	\end{itemal}
+	This procedure fails for some integrals.
+	\begin{align*}
+		\int_0^1 x^{-\frac 3 2} ~dx & = \lim_{a\to0^+} \int_a^1 x^{-\frac 3 2} ~dx\\
+		& = \lim_{a\to0^+} \left[-2x^{-\frac 1 2}\right]_a^1 \\
+		& = \lim_{a\to0^+} -2+2a^{-\frac 1 2} 
+	\end{align*}
+	This limit does not exist so the integral is meaningless or does not exist.
+\end{nex}
+
+ We would like to know whether an integral is defined before attempting to compute it. It is not necessary to compute the integral -- we need to consider the integrand at stress points. (limits $x\to\infty$, $x\to-\infty$ or points where $f(x)$ is unbounded.)
+ 
+ 
+ \begin{nex}
+ 	\item
+ 	\begin{itemal}
+ 		\int_0^\infty x^{-\frac 3 2} \tan^{-1} x ~dx
+ 	\end{itemal}
+ 	Does this exist?
+ 	\begin{align*}
+ 	f(x) = x^{-\frac 3 2} \tan^{-1} x
+ 	\end{align*}
+ 	Stress points are $x=0$ and $x \to \infty$. \\
+ 	$x=0$ 
+ 	\begin{align*}
+ 	f(x) & = x^{-\frac 3 2} \left(x-\frac {x^3} 3+\dots \right) \\
+ 	& \approx x^{-\frac 1 2} \quad \text{near } x= 0
+ 	\end{align*}
+ 	Since
+ 	\begin{align*}
+ 	\int_0^b x^{-\frac 1 2} ~dx
+ 	\end{align*}
+ 	is well defined, $f(x)$ has an integrable singularity at $x=0$. \\
+ 	$x \to \infty$ \\
+ 	For
+ 	\begin{align*}
+ 	f(x) = x^{-\frac 3 2} \frac \pi 2
+ 	\end{align*}
+ 	$x \to\infty$ is not a problem. Therefore 
+ 	\begin{align*}
+ 	\int_0^\infty x^{-\frac 3 2} x^{-\frac 3 2} \tan^{-1} x ~dx
+ 	\end{align*}
+ 	is finite.
+ 	\item
+ 	\begin{itemal}
+ 		\int_0^{\frac \pi 2} x \tan x ~dx
+ 	\end{itemal}
+ 	Does it exist? The stress point is $x = \frac \pi 2$. Look at $f(x) = x \tan x$ near $x = \frac \pi 2$.
+ 	\begin{align*}
+ 	\tan x & = \frac{\sin x}{\cos x} \\
+ 	\frac 1 {\cos x} & = \frac 1 {\cos((x-\frac \pi 2) + \frac \pi 2)} \\
+ 	& = \frac 1 {-\sin(x - \frac \pi 2)} \\
+ 	& \approx - \frac 1 {x-\frac \pi 2} \\
+ 	f(x) & \approx - \frac \pi 2 \cdot \frac 1 {x-\frac \pi 2} \quad \text{near } x  \\
+ 	& =\frac \pi 2
+ 	\end{align*}
+ 	$f(x)$ has a non-integrable singularity.
+ 	
+ 	Or approximate $f(x) \approx \frac \pi 2 \tan x$ (works near $x=\frac \pi 2$).
+ 	\begin{align*}
+ 	\frac \pi 2 \int_a^{\frac \pi 2} \tan x ~dx = \frac \pi 2 \int_a^{\frac \pi 2} \frac{\sin x}{\cos x} ~ dx
+ 	\end{align*}
+ 	\item
+ 	\begin{itemal}
+ 		\int_{-1}^1 \frac{dx} x
+ 	\end{itemal}
+ 	this is not an improper integral. It is undefined and can be any number. We can fix the integral to be zero -- define it as
+ 	\begin{align*}
+ 	\int_{-1}^1 \frac{dx} x & = \lim_{\epsilon \to 0^+} \left( \int_{-1}^{-\epsilon} \frac{dx} x + \int_{2\epsilon}^1 \frac{dx} x\right) \\
+ 	& = \lim_{\epsilon \to 0^+} (\log \epsilon - \log 2\epsilon) \\
+ 	& = \lim_{\epsilon\to 0^+} (-\log 2) = -\log 2.
+ 	\end{align*}
+ 	However, according to different definitions, the integral can take any value. We therefore say that the integral is not defined as an improper integral because
+ 	\begin{align*}
+ 	& \int_{-1}^0 \frac{dx} x \quad \text{and} \\
+ 	& \int_0^1 \frac{dx} x
+ 	\end{align*}
+ 	are no improper integrals. 
+ 	\item
+ 	\begin{itemal}
+ 		\int_0^{\frac \pi 2} \frac x {\cos x} ~dx \\
+ 		\int_0^{\frac \pi 2} \sqrt{\frac x {\cos x}} ~dx \\
+ 		\frac x {\cos x} \overset{x\to\frac\pi 2}{\to} \infty \\
+ 		\frac 1 {\cos x} = \frac 1 {\cos\left(\left(x-\frac \pi 2\right) + \right)} \\
+ 		= \frac {-1} {\sin\left(x- \frac \pi 2\right)} \\
+ 		\approx \frac{-1}{x-\frac \pi 2}
+ 	\end{itemal}
+ 	\item
+ 	\begin{itemal}
+ 		\int_a^{\frac \pi 2} \frac 1 {x-\frac \pi 2} ~ dx = \left[\log\left(x - \frac \pi 2 \right) \right]_a^{\frac \pi 2} \\
+		 \frac 1 {\sqrt{\cos x}} \approx \frac 1 {\cos x} = \frac 1 {\cos\left(x-\frac{\pi}{2} \right)} \\
+		 \int_0^1 x^{-\frac 1 2} ~dx
+ 	\end{itemal}
+ 	is well defined.
+ 	\item
+ 	\begin{itemal}
+ 		\int_0^b \frac 1 {x^n} ~dx
+ 	\end{itemal}
+ 	If $n<1$, $\frac 1 {x^n}$ integrable at $x=0$.
+ \end{nex}
+ 
+ 
+	
+	
+
+
+

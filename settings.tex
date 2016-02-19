@@ -1,0 +1,47 @@
+
+
+\author{David Burgschweiger}
+\title{M1M1 Notes}
+
+\geometry{verbose,a4paper,tmargin=2.5cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm}
+
+\pagestyle{fancy}
+\lhead{M1M1 notes}
+\rhead{\thepage}
+\cfoot{}
+
+\setlength{\lightrulewidth }{0.01em}
+\setlength{\heavyrulewidth }{0.15em}
+
+\theoremstyle{definition}
+
+\newcounter{defi}[subsection]
+\newcounter{rema}[defi]
+
+
+\newtheorem{lm}{Lemma}[section]
+\newtheorem{ex}{Example\stepcounter{rema}}[defi]
+\newtheorem{df}{Definition \stepcounter{defi}}[subsection]
+\newtheorem{ec}{Exercise}
+\newtheorem{pp}{Proposition}
+
+\newenvironment{nex}{\begin{ex} \begin{itemize}}{\end{itemize}\end{ex}}
+\newenvironment{itemal}{\hfill \begin{math} \begin{aligned}[t]} {\end{aligned} \end{math} \hfill\null\\ \\}
+
+\newtheorem{tm}{Theorem}[subsection]
+\newtheorem{rk}{Remark\stepcounter{rema}}[defi]
+\newtheorem{pr}{Property}[defi]
+\newtheorem{rt}{Result}[subsection]
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\Arg}{\operatorname{Arg}}
+
+%\displaystyle and \textstyle useful
+
+% \newenvironment{}{begdef}{enddef}

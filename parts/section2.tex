@@ -1,0 +1,284 @@
+\section{Limits}
+ \begin{df}
+  The symbolic notation
+  \begin{align*}
+  L = \lim_{x \to a} f(x) \quad \operatorname{or} \quad f(x) \overset{x \to a}{\to} f(x)
+  \end{align*}
+  means:
+ \begin{align*}
+  \forall \epsilon > 0 ~\exists \delta>0: ~(|x-a|> \delta \wedge x \in \dom(f)) \Rightarrow |f(x) - L| < \epsilon
+ \end{align*}
+ $f(x)$ approaches $L$ as $x$ approaches $a$. 
+ \end{df}
+\begin{rk}
+It is important that $x$ approaches $a$ from both the left and the right.
+A one sided limit is written as follows:
+\begin{align*}
+\lim_{a \to a^+} f(x)  
+\end{align*}
+or
+\begin{align*}
+ \lim_{x \to a^-} f(x)
+\end{align*}
+\end{rk}
+
+
+\begin{ex} \mbox \\
+\begin{itemize}
+\item
+Let
+\begin{align*}
+f(x) & = \frac x {|x|}, & x \neq 0
+\end{align*}
+Then
+\[
+\lim_{x \to 0} f(x)
+\]
+is undefined but one sided limits exist:
+\begin{align*}
+\lim_{x \to 0^+} f(x) & = 1 \\
+\lim_{x \to 0^-} f(x) & = -1 
+\end{align*}
+\item Let
+\begin{align*}
+f(x) = x^2 
+\end{align*}
+Then
+\begin{align*}
+\lim_{x \to 2} f(x) = f(2) = 4
+\end{align*}
+\item
+Let
+\begin{align*}
+f(x) & = \frac{x^2-1}{x-1} 
+\end{align*}
+$\lim_{x_ \to 1} f(x)$ is an indeterminate limit of the form $\frac 0 0$. However $\frac{x^2-1}{x-1} = x+1$ if $x \neq 1$. Therefore $\lim_{x_ \to 1} f(x) = 2$.
+\end{itemize}
+\end{ex}
+
+\begin{rk}
+Not all indeterminate limits are meaningful.
+\end{rk}
+
+\begin{ex}
+The limit
+\begin{align*}
+\lim_{x \to 1} \frac{x^2-1}{(x-1)^2}
+\end{align*}
+of the form $\frac 0 0$ does not exist.
+\end{ex}
+
+\subsection{Infinite Limits}
+\begin{ex}
+\begin{align*}
+\lim_{x \to \infty} \frac 1 x & = 0 \\
+\lim_{x \to -\infty} \tan^{-1} x & = -\frac \pi 2 \\
+\end{align*}
+$x \to \infty$ is the same as $\frac 1 x \to 0^+$. \\
+$x \to -\infty$ is the same as $\frac 1 x \to 0^-$.
+\end{ex}
+\begin{pr} 
+Provided the limits $\lim_{x \to a} f(x)$ and $\lim_{x \to a} g(x)$ exist we know the following rules:
+\begin{itemize}
+\item
+addition formula
+\begin{align*}
+ \lim_{x \to a} (f(x) +g(x) ) & = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)
+\end{align*}
+\item 
+product rule
+\begin{align*}
+\lim_{x \to a} f(x) g(x) = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)
+\end{align*}
+\item quotient rule ($\lim_{x \to a} g(x) \neq 0$)
+\begin{align*}
+\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}
+\end{align*}
+\end{itemize}
+\end{pr}
+
+\subsection{Computing Limits}
+\begin{itemize}
+\item 
+manipulate function so the limit is 'obvious'
+\item
+use power-series
+\item
+L'Hopital's rule
+\end{itemize}
+
+\begin{ex} \mbox \\
+\begin{itemize}
+\item
+\begin{align*}
+L & = \lim_{x \to 1} \frac{\sqrt{2-x} -1}{1-x} \\
+ & = \lim_{x \to 1} \frac{\sqrt{2-x}-1}{1-x} \cdot \frac{\sqrt{2-x}-1}{\sqrt{2-x}-1} \\
+& = \lim_{x \to 1} \frac{(2-x) -1}{(1-x)(\sqrt{2-x}+1} \\
+& = \lim_{x \to 1} \frac{1-x}{(1-x)\left(\sqrt{2-x}+1\right)} \\ 
+& = \lim_{x \to 1} \frac 1 {\sqrt{2-x} +1} \\
+ & = \frac 1 2
+\end{align*}
+Alternatively the power series can be used. Let $s= 1-x$. Then
+\begin{align*}
+L & = \lim_{s \to 0} \frac{\sqrt{1+s}-1} s
+\end{align*}
+\begin{tm}
+The general binomial theorem says
+\begin{align*}
+(1+s)^p = 1+ps + \frac{p(p-1)}{2!} s^2 + \frac{p(p-1)(p-2)}{3!} s^3 + \dots
+\end{align*}
+for $|s|<1$.
+\end{tm}
+The geometric series is a special case of the binomial theorem with $p=-1$.
+
+If $p$ is a positive integer, the series terminates -- and gives us the standard binomial theorem. If $p$ is not a positive integer, the formula continues infinitely. Hence 
+\begin{align*}
+(1+s)^{\frac 1 2} = 1 + \frac 1 2 s + \frac{\frac 1 2 ( \frac 1 2 -1)}{2!} s^2 + \dots
+\end{align*}
+can be inserted in our formula and we get:
+\begin{align*}
+\lim_{s \to 0} \frac{\sqrt{1+s}-1}{s} = \lim_{s \to 0} \frac{1 + \frac 1 2 s + \frac{\frac 1 2 \left( \frac 1 2 -1 \right)}{2!} s^2 + \dots -1}{s} =  \frac 1 2
+\end{align*}
+\item Let us calculate the following well-known limit:
+\begin{align*}
+\lim_{x\to 0} \frac{\sin x}{x}
+\end{align*}
+Using a power series we get
+\begin{align*}
+\lim_{x\to 0} \frac{\sin x}{x} = \lim_{x\to 0} \left(1-\frac{x^2}{3!} + \frac{x^4}{5!} - \dots\right) = 1
+\end{align*}
+\item Having calculated this limit we can compute
+\begin{align*}
+\lim_{x \to 0} \frac{\tan x}{x} = \lim_{x \to 0} \frac{\sin x}{x} \cdot \cos x = 1
+\end{align*}
+\item
+Using limits for graph sketching.
+\begin{align*}
+f(x) = \frac x {e^x-1}
+& = \frac 1 {1 + \frac x {2!} + \frac{x^2}{3!} + \dots}
+ \overset{x\to 0}{\to} 1 
+\end{align*}
+\item Let
+\begin{align*}
+f(x) = \frac{\cos \left( \frac \pi 2 x \right) }{ 1-x^2}
+\end{align*}
+Now we can calculate $\lim_{x \to 1} f(x)$.
+\begin{align*}
+& \frac{\cos \left( \frac \pi 2 x \right) }{ 1-x^2} \\ 
+= & \frac{\cos\left( \frac \pi 2 (x-1) + \frac \pi 2\right)}{ (x-1)(x+1)} \\
+= & \frac{\sin\left(\frac \pi 2(x-1) \right) }{(x-1)(x+1)}
+\end{align*}
+Substituting $s=x-1$ that gives us
+\begin{align*}
+= & \frac{\sin \left(\frac \pi 2 s\right)}{s(2+s)} \\
+= & \frac{\frac \pi 2 s - \frac 1 {3!} \left( \frac \pi 2 s \right)^3 + \frac 1 {5!} \left( \frac \pi 2 s \right)^5 + \dots}{s(2+s)} \\
+= & \frac{\frac \pi 2 - \frac 1 {3!} \left( \frac \pi 2 s \right)^3 + \frac 1 {5!} \left( \frac \pi 2 s \right)^5 + \dots}{2+s} \\
+ \overset{s \to 0}{\to} & \frac \pi 4 
+\end{align*}
+\item
+Consider the limit
+\begin{align*}
+& \lim_{x\to \infty} x^{\frac 1 3} \left( (x+1)^{\frac 2 3} - x^{\frac 2 3} \right) \\
+= & \lim_{x\to \infty} x^{\frac 1 3} \left( x^{\frac 2 3} (1+ \frac 1 x)^{\frac 2 3} - x^{\frac 2 3} \right) \\
+= & \lim_{x\to \infty} x^{\frac 1 3} \left( x^{\frac 2 3} \left( 1+ \frac 2 3 \cdot \frac 1 x + \frac{\frac 2 3 \left( \frac 2 3 -1 \right)}{2!} \left( \frac{1}{x} \right)^2 + \dots \right) - x^{\frac 2 3} \right) \\
+= & \lim_{x\to \infty} x \left( 1+ \frac 2 3 \cdot \frac 1 x + \frac{\frac 2 3 \left( \frac 2 3 -1 \right)}{2!} \cdot \left( \frac{1}{x} \right)^2 + \dots \right) - x \\
+= & \lim_{x\to \infty} \left( x \left( 1+ \frac 2 3 \cdot \frac 1 x + \frac{\frac 2 3 \left( \frac 2 3 -1 \right)}{2!} \cdot \left( \frac{1}{x} \right)^2 + \dots \right) - x \right) \\
+= & \lim_{x\to \infty} \left( x + \frac 2 3 + \frac{\frac 2 3 \left( \frac 2 3 -1 \right)}{2!} \cdot \frac{1}{x} + \dots  - x \right) \\
+= & \frac 2 3
+\end{align*}
+\item 
+Using limits, the equivalence of the definitions for the exponential function can be proven.
+\begin{align*}
+\lim_{x \to \infty} \left(1+ \frac a x \right)^x = e^a
+\end{align*} 
+Derivation:
+\begin{align*}
+& \lim_{x \to \infty} \left( 1+\frac a x \right)^x \\
+= & \lim_{x \to \infty} \exp \left( \log \left( 1+ \frac a x \right)^x \right) \\
+= & \lim_{x \to \infty} \exp \left(x \log \left( 1+ \frac a x \right) \right) \\
+= & \exp \left( \lim_{x \to \infty} x \left( \frac a x- \frac 1 2 \cdot \left( \frac a x \right)^2 + \frac 1 3  \left(\frac a x \right)^3 - \frac 1 4  \left( \frac a x \right)^4 \dots \right) \right) \\
+= & \exp (a)
+\end{align*}
+Another possibility to derive this is
+\begin{align*}
+\left( 1+\frac a x \right)^x
+= & 1+ x \frac a x + \frac{x(x-1)}{2!} \left( \frac a x \right) ^2 \\
+& + \frac{x(x-1)(x-2)}{3!} \left( \frac a x \right)^3 + \dots 
+\end{align*}
+Considering the limit to infinity and therefore only the dominant powers in each fraction we get
+\begin{align*}
+= 1+a+ \frac {a^2}{2}  +\frac{a^3}{3!} +\dots 
+\end{align*}
+\end{itemize}
+\end{ex}
+
+
+
+
+
+
+
+\subsection{Continuity}
+\emph{Informal Definition.} A continuous function $f$ has a graph with no breaks or jumps.
+\begin{ex} A continuous function is
+\begin{align*}
+f(x) = x^2
+\end{align*}
+An example for a non-continuous function is the Heaviside function:
+\begin{align*}
+H(x) = \left\{
+\begin{array}{l l}
+0, & x<0\\
+1, & x\ge 0
+\end{array}\right.
+\end{align*} 
+\end{ex}
+\begin{df}
+A function $f$ is continuous at $a \in \dom(f)$ if 
+\begin{align*}
+\lim_{x\to a} f(x) = f(a)
+\end{align*}
+\end{df}
+As for the Heaviside function, $\lim_{x\to 0} H(x)$ doesn't exist. Nonetheless, $H(x)$ is continuous for all $x \neq 0$ .
+
+\begin{ex}
+\begin{align*}
+f(x) = x \sin \left( \frac 1 x \right)
+\end{align*}
+is continuous for $x \neq 0$ but not continuous at $x=0$ (because it is not defined there). However,
+\begin{align*}
+\lim_{x\to 0} f(x) = 0
+\end{align*}
+since 
+\begin{align*}
+-|x| \leq f(x) \leq |x|
+\left| \sin \frac  1 x \right| \leq 1
+\end{align*}
+Hence, we can consider the function
+\begin{align*}
+g(x) = x  \left\{ \begin{array}{ll}
+\sin \left( \frac 1 x \right), & x \neq 0 \\
+ 0, & x=0 \\
+\end{array} \right.
+\end{align*} 
+$g$ is continuous for all $x \in \R$.
+\end{ex}
+
+\subsection{List of Power Series}
+\begin{align*}
+\sin x & = x -\frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots \\
+\cos x & = 1 -\frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots \\
+\tan x & = x + \frac{x^3}{3} + \frac{2}{15}x^5 + \dots \\
+\tan^{-1} x & = x + \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots \\
+\log (1+x) & = x -\frac{x^2}{2} - \frac{x^3}{3} - \frac{x^4}{4} + \dots \\
+e^x & = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots
+\end{align*}
+To derive the power series for $\tan^{-1}$, consider
+\begin{align*}
+\frac 1 {1+x^2} = 1-x^2 +x^4-x^6 + \dots
+\end{align*}
+Integrating both sides gives us
+\begin{align*}
+\tan^{-1} x = x -\frac {x^3} 3 + \frac{x^5} 5 - \dots
+\end{align*}
+

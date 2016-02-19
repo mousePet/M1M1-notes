@@ -1,0 +1,289 @@
+\section{Differentiation}
+\emph{Geometrical definition.}
+The derivative of a function $f$ at $x$ is the slope of the tangent to the graph $y= f(x)$ at $(x,f(x))$.
+\begin{df}
+\begin{align*}
+f'(x) = \lim_{x \to 0} \frac{f(x+h) -f(x)}{h}
+\end{align*}
+$\frac{f(x+h) -f(x)}{h}$ denotes the slope of the secant through  $(x,f(x))$ and $(x+h,f(x+h))$.
+\end{df}
+\begin{rk}
+$f'(x)$ is also a function with $\dom(f') \subseteq \dom(f)$.
+\end{rk}
+Using the limit definition to compute derivatives is called differentiation from first principles.
+\begin{ex} \mbox \\
+\begin{itemize}
+\item  Polynomials
+\begin{align*}
+f(x) & = x^3 \\
+\frac{f(x+h) -f(x)}{h} & = \frac{(x+h)^3-x^3}{h} \\
+ & = \frac{x^3+3hx^2+3h^2x+h^3-x^3}{h} \\
+& = 3x^2 + 3hx +h^2 \\
+& \overset{x \to 0}{\to} 3x^2
+\end{align*}
+\item The cosine function
+\begin{align*}
+f(x) & = \cos x  \\
+\frac{f(x+h) -f(x)}{h} & = \frac{\cos(x+h) - \cos x }{h} 
+\end{align*}
+Let us use the trigonometrical identity
+\begin{align*}
+\cos A - \cos B = -2 \sin \frac{A-B} 2 \sin \frac{A+B} 2
+\end{align*}
+(Derivation:
+\begin{align*}
+\cos(\alpha+\beta ) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta \\
+\cos(\alpha - \beta) & = \cos \alpha \cos \beta + \sin \alpha \sin \beta \\
+\cos(\alpha+\beta ) - \cos(\alpha - \beta) & = -2\sin \alpha \sin \beta)
+\end{align*}
+With $A= x+b$ and $B=x$ this gives us
+\begin{align*}
+\frac{\cos(x+h) -\cos(x)}{h} & = \frac{-2 \sin \frac h 2 \sin \left( x + \frac h 2 \right)}{h} \\
+& \overset{h \to 0}{\to} -\sin x
+\end{align*}
+\item
+The function $f$ with 
+\begin{align*}
+f(x) = \left\{ 
+\begin{array}{ll}
+1, & x \in \mathbb Q \\
+0, & x \in \R \backslash \Q
+\end{array} \right.
+\end{align*}
+is not continuous for all $x \in \R$.
+\end{itemize}
+\end{ex}
+
+
+
+\begin{tm}
+If a function $f$ is differentiable at $a \in \dom f$ then $f$ is continuous at $a$. 
+\end{tm}
+This poses the question whether it is possible to find a function which is continuous but nowhere differentiable?
+The Fourier series are
+\begin{align*}
+f(x) = \sum_{n=1}^\infty \frac{\sin(n\pi x)} n = \sin(\pi x) + \frac{\sin(2\pi x )}{2} + \frac{\sin(3 \pi x)}{3} + \dots 
+\end{align*}
+This led to the discovery of the Lacunary Fourier series
+\begin{align*}
+R(x) = \sum_{n=1}^\infty \frac{\sin(n^2\pi x)} n = \sin(\pi x) + \frac{\sin(4\pi x )}{2} + \frac{\sin(9 \pi x)}{3} + \dots 
+\end{align*}
+$R$ is not differentiable except for $x$ rational of the form $\frac p q$, $p,q$ odd.
+\subsection{Basic Derivatives}
+\begin{center}
+\begin{tabularx}{.5\textwidth}{XX}
+\toprule
+$ f(x)$ & $f('x)$ \\
+\toprule
+ $x^n$ & $nx^{n-1}$ \\
+\midrule
+$\exp(x)$ & $\exp(x)$ \\
+$\log x$ & $\frac 1 x$ \\
+\midrule
+$\sinh(x)$ & $\cosh (x) $\\
+$\cosh (x)$ & $\sinh (x)$ \\
+\midrule
+$\sin(x)$ & $\cos(x) $\\
+$\cos(x)$ & $-\sin(x)$ \\
+$\tan(x)$ & $\sec^2(x)$ \\
+\midrule
+$\sin^{-1}(x)$ & $\frac 1 {\sqrt{1-x^2}} $  \\
+$\tan^{-1}(x)$ & $\frac 1 {1+x^2}$ \\
+\midrule 
+$\sinh^{-1}(x)$ & $\frac 1 {\sqrt{1+x^2}} $ \\
+$\tanh^{-1}(x)$ & $\frac 1 {1-x^2}$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\subsection{Differentiation rules}
+If $u,v$ and $f$ are derivable functions then the followings rules hold: 
+\begin{itemize}
+\item 
+Addition rule
+\begin{align*}
+\frac d {dx} (u(x) + v(x) )= u'(x) + v'(x) 
+\end{align*}
+\item 
+Multiplication rule
+\begin{align*}
+\frac d {dx} u(x) v(x) = u'(x) v(x)+u(x) v'(x) 
+\end{align*}
+\item 
+Chain rule
+\begin{align*}
+\frac d {dx} f(u(x)) & = f'(u(x)) u'(x) \\
+\frac{df}{dx} & = \frac{df}{du} \cdot \frac {du}{dx} 
+\end{align*}
+\end{itemize}
+For the derivation of the product rule consider the following quotient:  
+\begin{align*}
+& \frac{u(x+h)v(x+h) -u(x)v(x)} h \\
+= & \frac{u(x+h)v(x+h) - u(x)v(x+h) + u(x) v(x+h) - u(x)v(x)} h \\
+= & v(x+h) \frac{u(x+h)-u(x)}{h} + u(x) \frac{v(x+h)-v(x)} h \\
+\overset{h \to 0} \to & v(x)u'(x) +u(x)v'(x)
+\end{align*}
+The proof of chain rule will be done in spring term analysis.
+
+\subsection{Implicit Differentiation}
+\begin{rk}
+Implicit differentiation applies the chain rule .
+\end{rk}
+\begin{ex}
+Compute the slope of tangent to unit circle $x^2+y^2=1$.
+\end{ex}
+'Solve' to get $y=y(x)$ and use the differentiation rules.
+\begin{align*}
+y(x) & = \pm \sqrt{1-x^2} \\
+y'(x)& = \pm \frac{-x}{\sqrt{1-x^2}} = \mp \frac x {\sqrt{1-x^2}}
+\end{align*}
+Implicit differentiation. Treat $y^2$ as a composite function -- differentiate with the chain rule.
+\begin{align*}
+\frac{d}{dx} y^2(x) = 2 y(x)y'(x)
+\end{align*}
+equation $x^2+y^2=1$. Differentiate with respect to $x$
+\begin{align*}
+2x + 2 y y' = 0 \quad \vee \quad y'=\frac{-x} y
+\end{align*}
+
+
+\begin{ex}
+\begin{align*}
+y^3-y &= x^2 \\
+(3y^2 -1) y' & = 2x
+\end{align*}
+The slope of the tangent is 
+\begin{align*}
+y' = \frac{2x}{3y^2-1}
+\end{align*}
+For the point $(\sqrt 6, 2)$ we get the slope 
+\begin{align*}
+y' = \frac{2 \sqrt6}{11}
+\end{align*}
+\end{ex}
+\subsection{Parametric Differentiation}
+You can describe a curve in the $xy$ plane parametrically.
+\begin{ex}
+\begin{itemize}
+\item 
+Let us consider a curve defined by the hyperbolic functions.
+\begin{align*}
+x(t) & = \cosh(t) \\
+y(t) & = \sinh (t), \qquad t \in \R
+\end{align*}
+slope of the tangent
+\begin{align*}
+\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}} = \frac{\dot{y}}{\dot x}
+\end{align*}
+$\cdot $ denotes differentiation with respect to the parameter $t$.
+\begin{align*}
+\frac{dy}{dx} = \frac{\cosh t}{\sinh t} = \coth t
+\end{align*}
+\item 
+The equation for a cycloid is
+\begin{align*}
+x(t) & = t - \sin t \\
+y(t) & = 1- \cos t, \qquad t \in \R
+\end{align*}
+The point on the edge of a rolling wheel traces a cycloid.
+\begin{align*}
+\frac{dy}{dx} = \frac{\dot y}{\dot x} = \frac{\sin t }{1- \cos t}
+\end{align*}
+\end{itemize}
+\end{ex}
+
+\subsection{Higher Differentiation}
+Suppose $f$ is differentiable then consider the limit
+\begin{align*}
+\lim_{h \to 0} \frac{f'(x+h) -f'(x)}{h}
+\end{align*}
+If this exists, $f$ is said to be twice differentiable. The limit is called second derivative, denoted 
+\begin{align*}
+f''(x) \quad \text{or} \quad \frac{d^2f(x)}{dx^2} \quad \text{or} \quad
+y''(x) \quad \text{or} \quad \frac{d^2y(x)}{dx^2}
+\end{align*}
+This can be continued to define the $n^{th}$ derivative, denoted as
+\begin{align*}
+f^{(n)} (x) \quad \text{or} \quad \frac{d^n f(x)}{dx^n} \quad \text{or} \quad
+y^{(n)}(x) \quad \text{or} \quad \frac{d^ny(x)}{dx^n} \quad \text{or} \quad \left( \frac d {dx} \right) ^n f(x)
+\end{align*}
+$\frac d {dx}$ is called the differential operator.
+
+
+\begin{ex}
+\begin{align*}
+& f(x) = \log x & & f^{(1)}(x) = \frac 1 x \\
+& f^{(2)} (x) = -\frac 1 {x^2} & & f^{(3)}(x) = \frac 2 {x^3} \\
+& f^{(4)} (x) = -\frac{2 \cdot 3}{n^4} & & f^{(n)} (x) = \frac{(-1)^{n+1} (n-1)!}{x^n}
+\end{align*}
+\end{ex}
+
+\begin{tm}
+The Leibniz' formula is
+\begin{align*}
+\left(\frac d {dx} \right) u v = \sum_{p=0}^n \binom n p u^{n-p} v^p
+\end{align*}
+\end{tm}
+The derivation can be made through regarding the functions $u(x)v(x)$.
+\begin{align*}
+\frac d {dx} u v = u'v + uv'
+\end{align*}
+Differentiating again gives us
+\begin{align*}
+\left( \frac d {dx} \right)^2 uv & = u'' v + u'v' + u'v' + uv'' \\
+& = u''v + 2u'v' + u v'' \\
+\left( \frac d {dx} \right)^3 uv & = u''v + u''v' + 2(u''v'+ u'v'') + u'v'' + uv''' \\
+& = u'''v + 3u''v' + 3u'v'' + uv'''
+\end{align*}
+The coefficients are binomial coefficients. A rigorous proof can be made by induction.
+
+
+
+\begin{ex}
+\begin{itemize}
+\item
+Leibniz is particularly useful if one term in the product is a polynomial -- since the sum terminates
+\begin{align*}
+f(x) & = e^{2x}x^2 
+\end{align*}
+Set
+\begin{align*}
+v= x^2, \quad u = e^{2x} 
+\end{align*}
+Then
+\begin{align*}
+v^{(1)} = 2x, \quad v^{(2)} = 2, \quad v^{(3)} = v^{(4)} = v^{(5)} & = 0 \\
+u^{(n)} & = 2^n e^{2x}
+\end{align*}
+This gives us the $n^{th}$ derivative of $f$
+\begin{align*}
+f^{(n)} (x) & = \binom{n}{0} u^{(n)} v^{(0)} + \binom{n}{1} u^{(n-2)} v^{(1)} \binom{n}{2} u^{(n-2)} v^{(2)} \\ 
+& = 2^n e^{2x}  x^2 + n 2^{n-1} e^{2x} 2x   + n(n-1)2^{n-2} e^{2x} 
+\end{align*}
+\item
+Another example
+\begin{align*}
+f(x) & = \sin^{-1} x \\
+f'(x) & = \frac 1 {\sqrt{1-x^2}} \\
+f''(x) & = \frac x {(1-x^2)^{\frac 3 2}} = \frac x {1-x^2} f'(x) \\
+(1-x^2)f^{(2)}(x) & = x f^{(1)} (x) 
+\end{align*}
+Differentiate both sides $n$ times.
+\begin{align*}
+\left( 1-x^2 \right) f^{(2+n)} + \binom n 1 (-2x) f ^{(1+n)} + \binom n 2 (-2) f^{(n)} = xf^{(n+1)} + 1 f^{(n)} \binom{n} 1 \\
+\left( 1-x^2 \right) f^{2+n} - 2nx f(1+n)(x) - n (n+1) f^{(n)} = x f^{(n+1)} +  nf^{(n)}
+\end{align*}
+Set $x=0$
+\begin{align*}
+f^{(2+n)}(0) - n(n-1)f^{(n)}(0) & = n f^{(n)}(0)  \\
+f^{(2+n)}(0) & = n^2 f^{(n)}(0) \\
+f^{(0)}(0) & = 0 \\
+f^{(1)}(0) & = 1 \\
+f^{(3)}(0) & = 1 \\
+f^{(5)}(0) & = 9 = 3^2 \\
+f^{(7)}(0) & = 3^2 5^2 = 225 \\
+f^{(9)}(0) & = 3^2 5^2 7^2
+\end{align*}
+\end{itemize}
+\end{ex}
+
+

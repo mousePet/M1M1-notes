@@ -1,0 +1,427 @@
+\section{Complex numbers}
+
+\begin{df}
+	A complex number $z$ is of the form
+	\begin{align*}
+	z = x + iy
+	\end{align*}
+	where $x$ and $y$ are a pair of real numbers. $i$ is the imaginary unit with basic property $i^2 = -1$.
+\end{df}
+
+Geometrically a complex number is a point in the complex plane.
+
+Abbreviations:
+\begin{center}
+\begin{tabularx}{.5\textwidth}{XX}
+	\toprule
+	Expression & Abbreviation \\
+	\toprule
+	$x+i0$ & $x$ \\
+	$0+iy$ & $iy$ \\
+	$0 + i0$ & 0 \\
+	\bottomrule
+\end{tabularx}
+\end{center}
+
+We can use polar coordinates:
+\begin{align*}
+x & = r \cos \theta \\
+y & = r i \sin \theta
+\end{align*}
+$r$ is the distance from the origin and $\theta$ is the angle from the positive x-axis (anti-clockwise).
+
+
+\begin{df}
+	The \emph{modulus} $|z|$ of a complex number
+	\begin{align*}
+	z = x + iy = r \cos \theta + i \sin \theta
+	\end{align*}
+	is
+	\begin{align*}
+	|z| = \sqrt{x^2+ y^2} = r
+	\end{align*}
+\end{df}
+
+\begin{df}
+An \emph{argument} of $z$ is the polar angle $\theta$. This is ambiguous since replacing $\theta$ with $\theta \pm 2 \pi$ has no effect on $z$.
+\end{df}
+
+\begin{ex}
+	\begin{align*}
+	z = 0 + 1i = i \\
+	|i| = 1 \\
+	\operatorname{arg}(i) = \frac \pi 2
+	\end{align*}
+	or $\frac{5 \pi} 2$, $\frac{9 \pi}{2}$.
+\end{ex}
+
+$\Arg(z) = \theta$ denotes the principal value of the argument with $-\pi < \theta \le \pi$	.
+
+\begin{rk}
+	\begin{align*}
+	|z_1 z_2| = |z_1| |z_2|
+	\end{align*}
+\end{rk}
+The rules of algebra of complex numbers are the same as for reals (remember that $i^2 = -1$).
+
+\begin{df}
+	If $z = x + iy$, the \emph{reciprocal} is defined as 
+	\begin{align*}
+	\frac 1 z = \frac{x-iy}{x^2+y^2}.
+	\end{align*}
+\end{df}
+
+\begin{rk}
+	\begin{align*}
+	\displaystyle z \cdot \frac 1 z = 1
+	\end{align*}
+\end{rk}
+
+In polar coordinates the reciprocal can by obtained by replacing $r$ with $\frac 1 r$ and $\theta$ with $-\theta$. If $z = r \cos \theta + i  r \sin \theta$, then 
+\begin{align*}
+\frac 1 z = \frac 1 r ( \cos \theta - i \sin \theta).
+\end{align*} 
+
+\begin{ex}
+	\begin{align*}
+	z & = 1 + i \sqrt 3 = 2 \left( \cos \frac \pi 3 + i \sin \frac \pi 3 \right) \\
+	\frac 1 z & = \frac{1-i \sqrt 3}{1+3} \\
+	& =  \frac{1-i \sqrt 3}{4} \\
+	& = \frac 1 2 \left( \cos \frac \pi 3  - \sin \frac \pi 3 \right)
+	\end{align*}
+\end{ex}
+
+Integer powers can be defined by multiplication
+\begin{align*}
+z^2 & = z \cdot z \quad z^3 = z \cdot z \cdot z \quad \dots \\
+z^2 & = (x+iy)(x+iy) \\
+& = x^2 - y^2 + 2ixy
+\end{align*}
+Negative integer powers are defined through the reciprocal.
+\begin{align*}
+z^{-1} & = \frac 1 z \\
+z^{-2} & = \frac 1 z \cdot \frac 1 z \quad \\
+\dots &
+\end{align*}
+
+
+\subsection{Power series}
+\begin{df}
+	A \emph{complex power series} has the form
+	\begin{align*}
+	\sum_{m=0}^\infty c_m z^m, \qquad c_i \in \C,~ i \in \N.
+	\end{align*} 
+\end{df}
+
+The ratio test, the root test and the radius of convergence still work, except that instead of absolute values the complex modulus is used. 
+
+\begin{ex}
+	An important example is the complex exponential function. Recall the real exponential has a power series expansion
+	\begin{align*}
+	\exp(x) = 1 + \frac x {1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots
+	\end{align*}
+	with $R=0$.
+	We can define the complex exponential
+	\begin{align*}
+	\exp(z) = 1 + \frac z {1!} + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots
+	\end{align*}
+	with $R=0$. The right-hand side is convergent for any complex number $z$.
+\end{ex}
+
+
+The addition formula for the complex exponential is still true:
+\begin{align*}
+\exp(z+w) = \exp(z) \exp(w)
+\end{align*}
+
+
+\begin{tm}
+	\emph{Euler's Formula} 
+	\begin{align*}
+	e^{i \theta} = \cos \theta + i \sin \theta 
+	\end{align*}
+\end{tm}
+
+\begin{proof}
+	Insert $z = i \theta$ into the exponential power series:
+	\begin{align*}
+	\exp(i \theta) & = 1 +  \frac{(i \theta)^2}{2!} + \frac{(i \theta)^4}{4!} + \dots + \frac {i \theta} {1!} + \frac{(i \theta)^3}{3!} + \frac{(i \theta)^5}{5!} + \dots \\
+	& = 1 -  \frac{\theta^2}{2!} + \frac{ \theta^4}{4!} + \dots + i \left(\frac {i \theta} {1!} - \frac{ \theta^3}{3!} + \frac{ \theta^5}{5!} + \dots \right) \\
+	& = \cos \theta + i \sin \theta
+	\end{align*}
+\end{proof}
+
+Hence, we can rewrite the polar form of $z = r \cos \theta + i r \sin \theta$ as $z = r e^{i \theta}$
+
+\begin{ex}
+	\begin{itemize}
+		\item
+	\begin{align*}
+	\sqrt 3 + i = 2\left( \cos \frac \pi 6 + i \sin \pi 6 \right) = e^{\frac{i \pi} 6}
+	\end{align*}
+	\item
+	\begin{align*}
+	& &	z & = -1 \\
+	& &	 |z| & = 1, \quad \arg(z) = \pi \\
+		& \Rightarrow & -1 & = e^{i\pi}  \\
+	& \Leftrightarrow &	1 + e^{i\pi} & = 0
+	\end{align*}
+\end{itemize}
+\end{ex}
+
+
+We can use Euler to derive trigonometrical formulas. For example the addition formulas:
+\begin{align*}
+\sin( \alpha + \beta) & = \sin \alpha \cos \beta  + \sin \beta \cos \alpha \\
+\cos( \alpha + \beta) & = \cos \alpha \cos \alpha  + \cos \beta \cos \beta
+\end{align*}
+\begin{proof}
+	Apply Euler to the three exponentials.
+	\begin{align*}
+	& \cos(\alpha+ \beta)  + i \sin (\alpha+ \beta) \\
+	= & (\cos \alpha + i \sin \alpha) (\cos \beta + i \sin \beta) \\
+	= & \cos \alpha \cos \beta - \sin \alpha \sin \beta + i( \cos \alpha \sin \beta + \sin \alpha \cos \beta)
+	\end{align*}
+	The real part is the addition formula for cosine and the imaginary part gives us the addition formula for the sine function.
+\end{proof}
+
+\begin{tm}
+\emph{De Moivre's Theorem} 
+\begin{align*}
+(\cos \theta + i \sin \theta )^n = \cos n \theta + i \sin n \theta
+\end{align*}
+\end{tm}
+
+\begin{proof}
+	Apply Euler to two exponentials $e^{i \theta}$ and $e^{in \theta}$.
+\end{proof}
+
+Euler's formula expresses a complex exponential in terms of trigonometrical functions. We can also do the reverse, i.e. express trigonometrical functions in terms of complex exponentials.
+\begin{align*}
+\cos \theta & = \frac{e^{i \theta} + e^{-i \theta}} 2 \\
+\sin \theta & = \frac{e^{i \theta} + e^{-i \theta}} {2i} 
+\end{align*}
+The derivation can be made using Euler and 
+\begin{align*}
+e^{- i \theta} = \cos \theta - i \sin \theta
+\end{align*}
+We can generalise cosine and sine to complex arguments.
+\begin{df}
+	For any complex number $z$ 
+\begin{align*}
+\cos z = \frac{e^{iz} + e^{-iz}} 2 \\
+\sin z = \frac{e^{iz} + e^{-iz}} {2i}.
+\end{align*}
+\end{df}
+
+\begin{ex}
+	\begin{align*}
+	\sin i = \frac{e^{i^2} - e^{-i^2}}{2i} = \frac {e^{-1} -e}{2i}
+	\end{align*}
+\end{ex}
+
+\begin{df}
+The complex conjugate of a complex number
+\begin{align*}
+z = x + iy = r e^{i \theta}
+\end{align*}
+is defined as
+\begin{align*}
+\overline z = x-iy = r e^{-i\theta}
+\end{align*}
+\end{df}
+
+Geometrically, complex conjugation is a reflection about the real axis.
+
+Useful formulas are
+\begin{align*}
+\operatorname{Re}(z) & = \frac{z + \overline z} 2 \\
+\operatorname{Im}(z) & = \frac{z- \overline z} 2 \\
+|z| & = (z \overline z)^{\frac 1 2} \\ \
+\overline{ab} & = \overline a\cdot  \overline b
+\end{align*}
+
+\subsection{Complex Polynomials}
+
+\begin{df}
+A complex Polynomial of degree $n$ has the form
+\begin{align*}
+P(z) = c_0 + c_1 z + c_2 z^2 + \dots + c_n z^n, \qquad c_0, c_1, \dots, c_n \in \C, c_n \neq 0.
+\end{align*}
+\end{df}
+
+
+\begin{tm}
+	\emph{Fundamental Theorem of Algebra} \\
+	A complex polynomial has at least one root.
+\end{tm}
+
+A polynomial of degree $n$ has therefore $n$ roots, (where roots may be repeated). A complex polynomial can be factorized into linear factors.
+I.e. we can write
+\begin{align*}
+P(z) = c_n(z-a_1)(z-a_2)\dots (z-a_n)
+\end{align*}
+where $a_1, a_2, \dots, a_n$ are the $n$ roots of $P$ (which can be repeated, e.g.. $a_1=a_2$).
+
+If the coefficients $c_0, c_1, \dots, c_n$ of the polynomial are real, the roots can still be complex. 
+\begin{pp}
+	If the coefficients are real, the roots are either real or appear in complex conjugate pairs.
+\end{pp}
+
+\begin{proof}
+	Suppose $a$ is a root of $P$, i.e.
+	\begin{align*}
+	P(a) = c_0 + c_1 a + c_2a^2 + \dots + c_n a^n = 0.
+	\end{align*}
+	We take the complex conjugate
+	\begin{align*}
+	\overline c_0 + \overline c_1 \overline a + \overline c_2\overline a^2 + \dots + \overline c_n \overline a^n = 0.
+	\end{align*}
+	However, we assumed that the coefficients are real. Hence
+	\begin{align*}
+	 c_0 +  c_1 \overline a +  c_2\overline a^2 + \dots +  c_n \overline a^n = P(\overline z) = 0.
+	\end{align*}
+\end{proof}
+
+\begin{ex}
+	\begin{itemize}
+		\item
+	$ \displaystyle
+	P(z) = z^6 + 7z^3 -8
+	$ \\
+	has six complex roots.
+	\begin{align*}
+	P(z) & = (z^3)^2 + 7z^3 -8 \\
+	& = (z^3+8)(z^3-1)
+	\end{align*}
+	Hence, the roots are solutions of $z^3-1=0$ or $z^3+8 =0$. Let us first consider the former:
+	\begin{align*}
+	& & z^3 & = 1 = e^{2\pi i} \\
+	& \Leftrightarrow & z =1 \quad \vee \quad z & = e^{\frac{2\pi i}{3}} \quad \vee \quad  z = e^{\frac{4\pi i} 3} = e^{\frac{-2\pi i}{3}}
+	\end{align*}
+	We can do the same with the other equation:
+	\begin{align*}
+	& & z^3 & = -8 = 8 e^{\pi i} \\
+	& \Leftrightarrow & z = -2 \quad \vee \quad z & = 2 e^{\frac{\pi i}{3}} \quad \vee \quad  z = e^{\frac{5\pi i} 3} = e^{\frac{-\pi i}{3}}
+	\end{align*}
+	As a result, we can factorize $P(z)$ as
+	\begin{align*}
+	(z-1)(z-2)(z-e^{\frac{2\pi i}{3}})(z-e^{\frac{-2\pi i}{3}}) (z-2e^{\frac{\pi i}{3}})(z-2e^{\frac{-\pi i}{3}})
+	\end{align*}
+	\item
+	Similarly, we solve the following equation:
+	\begin{align*}
+	z^3 -i & = 0 \\
+	z^3 & = i = e^{i \frac \pi 2} = e^{5i \frac \pi 2} = e^{9i \frac \pi 2} \\
+	z & = e^{i \frac \pi 6}, z = e^{5 i \frac \pi 6}, z = e^{9 i \frac \pi 6}
+	\end{align*}
+\end{itemize}
+\end{ex}
+
+\begin{df}
+	A \emph{real Polynomial} of degree $n$ has the form
+	\begin{align*}
+	P(x) = c_0 + c_1 z + c_2 z^2 + \dots + c_n z^n, \qquad c_0, c_1, \dots, c_n \in \R, c_n \neq 0.
+	\end{align*}
+\end{df}
+
+A real polynomial can be factorized into real linear and real quadratic factors. I.e. we can write
+\begin{align*}
+P(x) = c_n(x-a_1)(x-a_2) \dots (x-a_n)
+\end{align*}
+where $a_1,a_2, \dots, a_n$ are the roots of the complex polynomial
+\begin{align*}
+P(z) = c_0 + c_1 z + c_2 z^2 + \dots + c_n z^n.
+\end{align*}
+We can combine $c_1, c_2$ conjugate pairs into a real quadratic term.
+
+\begin{ex}
+	We already found out that the complex polynomial $P$ can be factorised in the following way:
+	\begin{align*}
+	P(z) &  = z^6 + 7z^3 - 8 \\
+	& = (z^3+8)(z^3-1) \\
+	& = (z-1)(z+2) \left(z - e^{2i \frac \pi 3} \right) \left(z - e^{-2i \frac \pi 3} \right) \left(z - e^{i \frac \pi 3} \right) \left(z - e^{-i \frac \pi 3} \right)
+	\end{align*}
+	Now, consider the real polynomial
+	\begin{align*}
+	P(x) & = z^6 + 7z^3 - 8 \\
+	& = (x-1)(x+2) \left( x^2+ x\left( e^{2i \frac \pi 3} + e^{-2i \frac \pi 3} \right) +1 \right) \left( x^2 + x \left(e^{i \frac \pi 3} + e^{-i \frac \pi 3} \right) +4 \right) \\
+	& = (x-1)(x-2)(x^2 +x+1) (x^2-2x+4)	.
+	\end{align*}
+\end{ex}
+
+\subsection{Complex Functions}
+
+\begin{df}
+	A \emph{function $f$ of a complex variable} assigns a complex number $f(z)$ to every $z$ in $\dom (f) \subseteq \C$.
+\end{df}
+
+\begin{ex}
+	\begin{itemize}
+		\item
+		complex polynomials
+		\item
+		complex power series
+		\item
+		complex exponential
+		\item
+		complex trigonometrical functions
+		\item
+		complex hyperbolic functions
+	\end{itemize}
+\end{ex}
+
+\subsubsection{Complex Logarithm} 
+\begin{df}
+	Define $\log$ with
+	\begin{align*}
+	\exp(\log z) = z
+	\end{align*}
+	for $z \in \C$.
+	We can use the polar form $z = r e^{i \theta}$ to simplify that:
+	\begin{align*}
+	z & = e^{\log r + i \theta} \\
+	\log z & = \log r + i \theta \\
+	\end{align*}
+	The ambiguity can be omitted through
+	\begin{align*}
+	\log z = \log |z| + i \Arg (z).
+	\end{align*}	
+\end{df}
+
+The complex logarithm has a singularity at zero and the "branch cut" of discontinuity at the negative real axis.
+
+\subsubsection{Inverse Tangent Function} 
+\begin{df}
+	We define the \emph{inverse tangent function} through the power series
+\begin{align*}
+tan^{-1} u = z - \frac{z^2} 3 + \frac{z^5} 5 + \dots.
+\end{align*}
+\end{df}
+In the complex plane the inverse tangent function has two branch cuts.
+A nice way to see this is
+\begin{align*}
+\tanh^{-1} x & = \frac 1 2 \log \frac{1+x}{1-x} \\
+\tan^{-1} x & = \frac 1 {2i} \log \frac{1+iz}{1-iz}.
+\end{align*}
+Since there are 2 logarithms involved there are two Branch cuts.
+
+\subsubsection{Powers} 
+\begin{df}
+We define 
+\begin{align*}
+z^p = e^{p \log z}.
+\end{align*}
+\end{df}
+
+
+\begin{align*}
+\log z & = \log r + i \theta \\
+z^p & = e^{p( \log r + i \theta)} \\
+& = r^p e^{ip \theta}
+\end{align*}
+is ambiguous unless $p$ is an integer. Try
+\begin{align*}
+\log z^p = e^{p \log z}
+\end{align*}
+This again has a Branch cut on the negative real axis.

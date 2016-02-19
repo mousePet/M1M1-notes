@@ -1,0 +1,387 @@
+
+
+%profressor Chris Ford
+%c.ford@imperial.ac.uk
+%651 huxley
+%office hour 12 pm tuesday
+%jonathan mastel google website 
+
+
+\section{Functions}
+\begin{df}
+ A function $f$ is a rule assigning every element x in a set $A$ an element $f\left(  x \right)$ in another set $B$.
+ \end{df}
+ \begin{rk} \mbox \\
+ \begin{itemize}
+ \item
+ $A$ is called the domain of $f$ whereas $B$ is called codomain.
+ \item
+ The range (image) of a function is the set:
+ \begin{align*}
+  \operatorname{Range(f)} & = \operatorname{Im} (f) \subseteq \operatorname{codomain} \\
+  & = \{ f(x) \in B| ~\forall x \in A \}
+ \end{align*}
+ It does not have to be equal to the codomain.
+ \item
+ In the following we will mostly consider functions of one variable (with $A = \R$ and $B = \R$, later $\mathbb C$).
+ \end{itemize}
+ \end{rk}
+ 
+ 
+ \begin{ex} Polynomials, $c_i \in \R, \forall i\in \mathbb N$:
+ \begin{align*}
+  f(x) = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + \dots
+  \end{align*}  
+  \end{ex}
+\begin{df} The graph of a function $f$ (real not complex) is the set 
+\begin{align*}
+\{\left( x,y\right)|x \in \dom( f), y = f(x)\}
+\end{align*}
+\end{df}
+\begin{pr}
+The graph of any function intersects any vertical line at most once.
+\end{pr}
+
+
+\subsection{Rational Functions}
+\begin{df}
+A rational function is one of the form
+\begin{align*} f(x) & = \frac{P\left( x\right)}{Q\left( x\right)}  \end{align*}
+where $P$ and $Q$ are polynomials.
+\end{df}
+
+\begin{ex} \begin{align*} f(x) & = \frac 1 {1-x^2}, & \dom\left( f\right) = \R \backslash\{1,-1\} \end{align*}
+\end{ex}
+
+\subsection{Exponential Function}
+\begin{df}
+The exponential function $\exp$ can be defined by several ways:
+\begin{enumerate}
+\item
+As a power of $e$:
+\begin{align*}
+ \exp\left( x\right) = e^x
+ \end{align*}
+ Obviously, for this definition the number $e$ must be defined.
+ \item
+As a power series:
+\begin{align*}
+ \exp\left( x\right) = \sum_{m=0}^\infty \frac{x^m}{m!}
+ \end{align*}
+\item
+By a ordinary differential equation (ODE):
+\begin{align*}
+ \frac{d}{dx} \exp\left( x\right) & = \exp\left( x\right) \\
+ \exp\left( 0\right) & = 1
+\end{align*}
+\item
+ As inverse of the natural logarithm:
+\begin{align*}
+ \exp^{-1}\left( x\right) & = \log\left( x\right) \\
+ \log\left( x\right) & = \int_1^x \frac{du}{u}
+\end{align*}
+\item
+As a limit:
+\begin{align*}
+\exp(x) = \lim_{n \to \infty} \left(1+ \frac x n \right)^n
+\end{align*}
+\end{enumerate}
+\end{df}
+\begin{pr}
+\begin{align*}
+\exp\left( x+y\right) = \exp\left( x\right) \cdot \exp\left( y\right)
+\end{align*}
+\end{pr} 
+
+\subsection{Trigonometrical Functions}
+\begin{df}
+Similar to the exponential function, the trigonometrical functions cos and sin have several potential definitions:
+\begin{enumerate}
+\item
+The elementary geometric definition at a right-angled triangle with a hypotenuse of length 1. 
+\item
+Definition through Polar form -- considering a point $p$ on a unit circle centred at the origin .
+\item
+As a power series:
+\begin{align*}
+\cos x & = 1- \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} +\dots \\
+\sin x & = x- \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} +\dots
+\end{align*}
+\item
+Through a system of ODEs:
+\begin{align*}
+\frac{d}{dx} \sin x & = \cos x \\
+\frac{d}{dx} \cos x & = -\sin x \\
+\sin 0 = 0&,  \quad \cos 0 =1
+\end{align*}
+\item
+With the help of complex numbers:
+\begin{align*}
+\cos x = \frac{e^{ix}+e^{-ix}}{2}, \quad \sin x = \frac{e^{ix}-e^{-ix}}{2i}
+\end{align*}
+\end{enumerate} 
+\end{df}
+\begin{pr} \mbox \\
+\begin{itemize}
+\item
+The addition formula:
+\begin{align*}
+\sin \left( x+y \right) & = \sin x \cos y + \cos x \sin y
+\end{align*}
+\item
+ Shifting:
+\begin{align*}
+\sin\left( x+\frac{\pi}{2}\right) & = \cos x \\
+\cos\left( x+\frac \pi 2\right) & = -\sin x \\
+\sin\left( x+ \pi \right) & = \sin\left( x+ \frac \pi 2\right)+\frac \pi 2\\ 
+ & = \cos\left( x+\frac \pi 2 \right) \\
+ \sin \left( x+2\pi\right) & = \sin x
+\end{align*}
+\end{itemize}
+
+\end{pr}
+\begin{rk}
+Special values which should be memorized are
+\begin{align*}
+x=0,\frac \pi 6, \frac \pi 4, \frac \pi 3, \frac \pi 2
+\end{align*}
+\end{rk}
+\begin{df}
+If a function $f$ has property $f\left( x+a\right) = f(x), ~ \forall x \in\dom ( f)$ it is called periodic. The period of $f$ is the smallest possible $a$ for which $f\left( x+a\right) = f(x), ~ \forall x \in\dom ( f)$ .
+\end{df}
+
+\begin{df}
+Other trigonometric functions can be written as a combination of sine and cosine:
+\begin{align*}
+\sec x = \frac 1 {\cos x} \\
+\operatorname{cosec} x = \frac 1 {\sin x} \\
+\tan x = \frac{\sin x}{\cos x} \\
+\cot x = \frac{\cos x}{\sin x} \\
+\end{align*}
+\end{df}
+\subsection{Odd and Even Functions}
+\begin{df}
+A function $f$ is even if
+\begin{align*}
+  \forall x \in\dom ( f): \quad f\left( -x\right) = f(x)
+\end{align*}
+A function $f$ is odd if
+\begin{align*}
+ \forall x \in\dom ( f): \quad f\left( -x\right) = -f(x)
+\end{align*}
+\end{df}
+\begin{rk} 
+These definitions assume that $\dom\left( f\right)$ is symmetric which means $x \in \dom \left( f\right) ~ \Rightarrow ~-x \in \dom\left( f\right)$ 
+\end{rk}
+\begin{ex} $\sin x$ is odd, $\cos x$ is even.
+ \end{ex}
+ \begin{pr}
+ A function can be neither odd nor even.
+ However, any function can be split into a sum of even and odd functions
+ \begin{align*}
+ f(x) = \frac 1 2 \left(  f(x) + f\left( -x\right)\right) + \frac 1 2 \left(  f(x)-f\left( -x\right)\right)
+ \end{align*}
+ The odd and even part of a function are unique.
+ \end{pr}
+ \begin{ex}
+ \begin{align*}
+ e^x & = \frac 1 2\left( e^x + e^{-x}\right) + \frac 1 2 \left( e^x - e^{-x}\right) 
+ \end{align*}
+ \end{ex}
+ \subsection{Hyperbolic Functions}
+ \begin{df}
+ \begin{align*}
+ \cosh x & = \frac 1 2 \left(e^x +e^{-x} \right) \\
+ \sinh x & = \frac 1 2 \left( e^x -e^{-x} \right)
+ \end{align*}
+ \end{df}
+ \begin{pr} \mbox \\
+ \begin{itemize}
+ \item Addition theorem and derivatives:
+ \begin{align*}
+ \sinh (x+y)&  = \sinh x \cosh y + \cosh x \sinh y \\
+ \sinh (x+y)&  = \sinh x \cosh y + \cosh x \sinh y \\
+ \frac d {dx} \sinh x & = \cosh x \\
+ \frac d {dx} \cosh x & = \sinh x
+ \end{align*}
+ 
+ \item
+The hyperbolic functions can also be expressed through power series:
+ \begin{align*}
+ \cosh x & = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} \dots \\
+ \sinh x & = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \dots
+ \end{align*}
+\item
+ Similarly to the trigonometrical Pythagoras the following equation holds: 
+ \begin{align*}
+ \cosh^2 x - \sinh^2 x =1
+ \end{align*}
+ \end{itemize}
+ \end{pr}
+
+ 
+\begin{rk}
+Origin of the name:
+ \begin{align*}
+ x & = \cosh t, & t \in \R \\
+ y & = \sinh t \\
+ x^2 -y^2 & = 1 
+ \end{align*}
+parametrizes a hyperbola. 
+\end{rk}
+
+
+
+
+\subsection{Inverse Functions}
+
+\begin{df}
+The inverse function $f^{-1}$, if it exists, is a function $f^{-1} : B \to A$ with the properties
+\begin{align*}
+f \left(f^{-1}(y) \right) & = y, & \forall y \in B \\
+f^{-1}(f(x)) & = x, & \forall x \in A \\
+\end{align*}
+\end{df}
+
+\begin{ex}
+\begin{align*}
+f(x) & = x^2 & A= [0,\infty) = B \\
+f^{-1}(y) & = \sqrt y 
+\end{align*}
+\end{ex}
+\begin{rk} \mbox \\
+\begin{itemize}
+\item
+A necessary condition for a function to be invertible is that $f$ is injective (one-to-one). 
+\begin{align*}
+f(x_1) = f(x_2) \quad \Rightarrow \quad x_1 = x_2 
+\end{align*}
+or
+\begin{align*}
+f(x_1) \neq f(x_2) \quad \Leftarrow \quad x_1 \neq x_2
+\end{align*}
+Graphical test: $f$ is injective if its graph intersects any horizontal line at most once.
+
+\item
+The graph of the inverse $f^{-1}$ is the set of the points of the graph of $f$ with the $x$ and $y$ coordinates exchanged. The graph of $f^{-1}$ can be obtained by reflecting the graph of $f$ about the line $y=x$.
+
+\item
+If $f$ is strictly increasing (decreasing), it is injective.
+\end{itemize}
+\end{rk}
+
+\begin{df}
+$f$ is strictly increasing if
+\begin{align*}
+x_1 > x_2 \quad \Rightarrow \quad f(x_1) > f(x_2)
+\end{align*}
+$f$ is strictly decreasing if
+\begin{align*}
+x_1 > x_2 \quad \Rightarrow \quad f(x_1) < f(x_2)
+\end{align*}
+\end{df}
+\begin{ex}
+ The exponential function is strictly increasing. (proof in problem sheet) 
+\end{ex}
+\begin{rk}\mbox \\
+ \begin{itemize} 
+ \item
+ Any even function $f$ is not injective if $\dom f \nsubseteq \{0\}$.
+ \item
+ Any periodic function is not injective either.
+ \item
+Therefore, the trigonometric functions
+\begin{align*}
+\sin, \cos, \tan
+\end{align*}
+are not invertible.
+
+In order to inverse the $\sin$ function, restrict the domain to $\left[-\frac \pi 2, \frac \pi 2\right]$.
+
+In order to inverse the $\cos$ funtion, restrict the domain to $[0, \pi]$.
+\end{itemize}
+\end{rk}
+The inverse of the exponential function is called logarithm, $\log x$.
+
+Anaytic treatment is sometimes possible. Require the existence of $f^{-1}(x)$ and 'Solve' $y=f(x)$ to obtain $x$ in terms of $y$, $x=f^{-1}(y)$.
+
+\begin{ex} \mbox \\
+\begin{itemize}
+\item 
+\begin{align*}
+f(x) & = e^{- \frac 1 x} \\
+x & = - \frac 1 {\log y}
+\end{align*}
+\item
+inverse hyperbolic functions
+\begin{align*}
+f(x) & = \cosh x \\
+f(x) & = \frac 1 2 \left( e^x + e^{-x} \right) \\
+e^{2x} - 2ye^x +1 & = 0 \\
+(e^x)^2 -2ye^x +1 & = 0 \\
+e^x & = \frac{2y \pm \sqrt{4y^2-4}} 2 \\
+e^x & = y \pm \sqrt{y^2-1} \\
+x & = \log \left( y \pm \sqrt{y^2-1} \right)
+\end{align*}
+Restrict domain of $\cosh x$ to non-negative $x$.
+\begin{align*}
+x & = \log ( y + \sqrt{y^2-1} \\
+\cosh^{-1} x & = \log \left( x + \sqrt{x^2-1} \right)
+\end{align*}
+\begin{align*}
+\sinh^{-1} x = \log \left( x + \sqrt{1+x^2} \right)
+\end{align*}
+\end{itemize}
+\end{ex}
+
+
+\subsubsection{Derivatives of Inverse Functions}
+The slope of the inverse function is $\frac 1 {f'(a)}$, the reciprocal of slope of the original function.
+\begin{ex}
+$f(x) = e^x = y$ so that $x = \log y$.
+\begin{align*}
+\frac{dx}{dy} = \left( \frac{dy}{dx} \right)^{-1} = \frac{1}{e^x} = \frac 1 y
+\end{align*}
+or
+\begin{align*}
+\frac{d}{dy} \log y = \frac 1 y
+\end{align*}
+\end{ex}
+
+
+\subsubsection{Inverse Trigonometrical functions}
+We are going to differentiate $\sin^{-1}$, $\tan^{-1}$. We set $y= \sin x $ so that $x = \sin^{-1} y$.
+\begin{align*}
+\frac{dx}{dy} = \left( \frac {dy}{dx} \right)^{-1}  = \frac 1 {\cos x} & = \frac 1 {\sqrt{1-\sin^2 x }} \\
+& = \frac 1 {\sqrt{1-y^2}} \\
+\frac d {dx} \sin^{-1} x & = \frac 1 {\sqrt{1 -x^2}}
+\end{align*}
+Similarly,
+\begin{align*}
+\frac{d}{dx} \tan^{-1} x = \frac {1}{1+x^2}
+\end{align*}
+ 
+\begin{pr}
+ \begin{align*}
+ \sin^{-1} x + \cos^{-1} x = \frac \pi 2 
+ \end{align*}
+\end{pr}
+\begin{ex} Find the mistake in the following proof.
+ \begin{align*}
+ \sin \left(x + \frac \pi 2 \right) & = \cos x \\
+ x & = \cos ^{-1} y \\
+ \sin \left( \cos^{-1} y + \frac \pi 2 \right) & = \cos \left( \cos^{-1} y \right) \\
+ \sin \left( \cos^{-1} y + \frac \pi 2 \right) & = y \\
+ \cos^{-1} y + \frac \pi 2 & = \sin^{-1} y \\
+ \sin^{-1}-\cos^{-1} y & = \frac \pi 2
+ \end{align*}
+\end{ex} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

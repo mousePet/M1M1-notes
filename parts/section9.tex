@@ -1,0 +1,300 @@
+\section{ODEs}
+
+\begin{df}
+	An \emph{ordinary differential equation} (ODE) is an equation involving a function $y$ and one or more of its derivatives.
+\end{df}
+
+The general form is
+\begin{align*}
+h(y,y',y'', \dots y^{(n)}, x) = 0
+\end{align*}
+This has order $n$ where $n$ is the highest derivative present. There are linear and non-linear ODEs.
+
+\begin{df}
+	A \emph{linear ODE} can be written as
+	\begin{align*}
+	p_0(x) y + p_1(x) y' + \dots + p_n(x) y^{(n)} = q(x)
+	\end{align*}
+	where $p_0, p_1, \dots, p_n$ are functions of $x$.
+\end{df}
+
+\begin{nex}
+	\item
+	A first order linear equation is
+	\begin{align*}
+	y' = \alpha y \qquad \alpha \in \R.
+	\end{align*}
+	\item
+	A first order non-linear equation is
+	\begin{align*}
+	y' = \alpha y^2.
+	\end{align*}
+	\item
+	The following equation is second order and non-linear
+	\begin{align*}
+	y'' = -1 -(y')^2
+	\end{align*}
+	\item
+	A second order linear equation is
+	\begin{align*}
+	x^2 y'' + xy' + y = \tan(e^x)
+	\end{align*}
+\end{nex}
+
+
+
+\subsection{First order ODEs}
+The general form is 
+\begin{align*}
+h(y,y',x) = 0.
+\end{align*}
+The simplest possible 1st order ODE is
+\begin{align*}
+y'(x) = f(x)
+\end{align*}
+The solution is
+\begin{align*}
+y(x9 = \int f(x) ~dx.
+\end{align*}
+\begin{ex}
+	\begin{align*}
+	\frac{dy}{dx} = \frac 1 {\sqrt{1-x^2}}
+	\end{align*}
+	has the general solution 
+	\begin{align*}
+	y(x) = \sin^{-1} x + C
+	\end{align*}
+\end{ex}
+
+The general linear ODE of order one looks like
+\begin{align*}
+y'(x) + p(x) y(x) = q(x)
+\end{align*}
+where $p$ and $q$ are arbitrary functions.
+(Integrating the equation does not always work:
+\begin{align*}
+y(x) + \int p(x) y(x)~dx = \int q(x)~dx
+\end{align*}
+)
+
+The integrating factor method helps. Multiply the ODE by 
+\begin{align*}
+e^{\int p(x)~dx}
+\end{align*}
+We get
+\begin{align*}
+e^{\int p(x) ~dx} (y'(x) + p(x) y(x)) = q(x) e^{\int p(x) ~dx}
+\end{align*}
+The LHS can be written as
+\begin{align*}
+\frac d {dx} \left( y(x) e^{\int p(x)~dx} \right) = q(x) e^{\int p(x)~dx} \\
+\frac d {dx} e^{\int p(x)~dx} = p(x) e^{\int p(x)~dx}
+\end{align*}
+Now directly integrate 
+\begin{align*}
+y(x) e^{\int p(x)~dx} = \int q(x) e^{\int p(x)~dx} ~dx \\
+y(x) = e^{-\int p(x)~dx} \cdot \int q(x) e^{\int p(x)~dx} ~dx
+\end{align*}
+\begin{ex}
+	\begin{align*}
+	y' + xy = x \qquad p(x) = x, q(x) = x
+	\end{align*}
+	The integrating factor is 
+	\begin{align*}
+	e^{\int p(x)~dx} = e^{\int x~dx} = e^{\frac 1 2 x^2} 
+	\end{align*}
+	We multiply the PDE by $e^{\frac 1 2 x^2}$.
+	\begin{align*}
+	e^{\frac 1 2 x^2} (y'+xy) & = xe^{\frac 1 2 x^2} \\
+	\frac d {dx} \left(y e^{\frac 1 2 x^2} \right) & = xe^{\frac 1 2 x^2}
+	\end{align*}
+	We integrate both sides
+	\begin{align*}
+	y e^{\frac 1 2 x^2} = \int x e^{\frac 1 2 x^2}~dx \\
+	= e^{\frac 1 2 x^2} +C \\
+	y = e^{-\frac 1 2 x^2}\left( e^{\frac 1 2 x^2} +C\right) \\
+	= 1 + C e^{-\frac 1 2 x^2}
+	\end{align*}
+	where $C$ is an arbitrary constant.
+\end{ex}
+
+
+\subsection{Separation of Variables}
+We can solve certain linear and non-linear ODEs 
+\begin{nex}
+	\item
+	\begin{itemal}
+	\frac{dy}{dx} = y \sin x  
+	\end{itemal}
+	Separate the $x$ and $y$ dependence.
+	\begin{align*}
+	\frac{dy} y = \int \sin x ~dx \\
+	\log y = - \cos x +C \\
+	y = Ae^{-\cos x}
+	\end{align*}
+	where $A$ is an arbitrary constant.
+	\item
+	\begin{itemal}
+		\frac{dy}{dx} = y^2 \sin x \\
+		\int \frac{dy}{y^2} = \int \sin x~ dx \\
+		- \frac 1 y = - \cos x +C \\
+		\frac 1 y = \cos x + d \\
+		y = \frac 1 {d+\cos x}
+	\end{itemal}
+	where $d$ is an arbitrary constant.
+\end{nex}
+
+\subsection{Homogeneous ODEs}
+\begin{df}
+	A \emph{homogeneous ODE} of first order is something like
+	\begin{align*}
+	\frac{dy}{dx} = f\left( \frac y x\right)
+	\end{align*}
+	where $f$ is an arbitrary function.
+\end{df}
+
+\begin{ex}
+	\begin{align*}
+	\frac{dy}{dx} = \frac y x - \tan \left( \frac y x \right)
+	\end{align*}
+	Use a new function $v = \frac y x$ and work with that instead of $y$.
+	\begin{align*}
+	y= xv \\
+	y' = xv' + v 
+	\end{align*}
+	So we can write the ODE as 
+	\begin{align*}
+	xv' + v = f(v)
+	\end{align*}
+	which is always separable. 
+	\begin{align*}
+	v' = \frac{f(v) - v} x
+	\end{align*} 
+	
+	\begin{align*}
+	xv' + v = v - \tan v \\
+	x \frac{dv}{dx} = -\tan v \\
+	\frac{dv}{\tan v} = - \frac{dx} x \\
+	\int \frac{\cos v ~dv}{\sin v} = -\int \frac {dx} x \\
+	\log(\sin v) = - \log x + C \\
+	\sin v = \frac A x
+	\end{align*}
+	where $A$ is an arbitrary constant.
+\end{ex}
+
+
+Bernoulli (non-linear)
+\begin{align*}
+y' + py = qy^n
+\end{align*}
+Use the trick substitution $z = y^{1-n}$
+\begin{align*}
+z' = (1-n) y^{-n} y'
+\end{align*}
+multiply equation by $(1-n)y^{-n}$:
+\begin{align*}
+(1-n)y^{-n} y' + p(1-n)y^{1-n} = q(1-n) \\
+z' + (1-n)pz = q(1-n)
+\end{align*}
+which is linear.
+
+\subsection{Second Order equations}
+\begin{df}
+A general second order linear equation is
+\begin{align*}
+y'' + p(x) y' + q(x) y = r(x)
+\end{align*} 
+where $p,q$, and $r$ are arbitrary functions of $x$.
+\end{df}
+
+There is no general solution known. The form of a general solution is
+\begin{align*}
+y(x) = C_1 y_1(x) + C_2y_2(x) + y_{PI} (x)
+\end{align*}
+were $C_1$ and $C_2$ are arbitrary constants. $y_1(x)$ and $y_2(x)$ are independent solutions of 
+\begin{align*}
+y'' + p(x) y' + q(x) y = 0
+\end{align*}
+($r$ is set to zero -- called homogeneous form of ODE)
+independent means that $y_1(x)$ $y_2(x)$ are not proportional to each other.
+$y_{PI}(x)$ is one solution of the full ODE. 
+
+In general it is difficult to find $y_1(x)$ and $y_2(x)$. However, special cases can be solved. A useful special case is the one with constant coefficients. ($p$ and $q$ but not necessarily $r(x)$ are constant.)
+The constant coefficient case is usually written
+\begin{align*}
+ay'' + by' + cy = r(x)
+\end{align*}
+where $a,b,c$ are constants. this is easy to solve (the solution is usually exponential). $y= e^{\lambda x}$ will work for some constant $\lambda$. The homogeneous equation
+\begin{align*}
+ay'' + by' + cy =0 \\
+y = e^{\lambda x} \\
+y' = \lambda e^{\lambda x} \qquad y''= \lambda^2 e^{\lambda x} \\
+\Rightarrow \qquad a \lambda^2 + b \lambda + c = 0 
+\end{align*}
+quadratic equation for $\lambda$.
+\begin{align*}
+y_1(x) = e^{\lambda_1 x} \qquad \lambda_2(x) = e^{\lambda_2}
+\end{align*}
+auxialiary equation
+\begin{align*}
+a\lambda^2+b \lambda + c = 0
+\end{align*}
+(if $\lambda_1 = \lambda_2$ see next term)
+hard bit to find $y_{PI}(x)$ one solution of full equation.
+\begin{align*}
+y(x) C_2 e^{\lambda_1 x} + C_2 e^{lambda_2 x} + y_{PI} (x)
+\end{align*}
+An important application of ODEs is:
+\begin{itemize}
+	\item 
+	Mechanics \\
+	Motion in one dimension. \\
+	Newton's second law (find position as a function of time $t$)
+	\begin{align*}
+	ax \dot \dot \dot x = F(x, \dot x, t)
+	\end{align*}
+	\begin{ex}
+		A boulder falls from a cliff.
+		$z$ measures the height above the cliff top -- $z$ is negative during the fall
+		\begin{align*}
+		m \dot \dot z = - mq+\alpha (\dot z)^2
+		\end{align*}
+		ODE 
+		\begin{align*}
+		\dot \dot z = -q + \beta \dot z^2
+		\end{align*}
+		$\beta = \frac \alpha m =$ constant. This is second order but first order if we substitute $w=\dot z$ in $w$.
+		\begin{align*}
+			\dot w = -g + \beta w^2 \\
+			\int \frac{dw}{g-\beta w^2} = - \int df \\
+			\int \frac{df}{1-x^2} = \tanh^{-1} x +C \\
+			\frac 1 g \int \frac{dw}{1- (\sqrt{\frac \beta g} w)^2} = -dt \\
+			\frac 1 g \sqrt{\frac g \beta} \tanh^{-1}(\sqrt{\frac \beta g} w) = -t +c \\
+			= \frac 1 {\sqrt{\beta g}} \tanh^{-1}(\sqrt{\frac \beta g} w) = -t+C
+		\end{align*}
+		At $t=0, z=0, \dot z = 0$. The boulder has zero speed initially. $\rightarrow c=0$.
+		\begin{align*}
+			\tanh^{-1} (\sqrt{\frac \beta g} w) = - \sqrt{\beta g} t \\
+			\sqrt{\frac \beta g} w = - \tanh(\sqrt{\beta g} t) \\
+			w(t) = - \sqrt{\frac g \beta} \tanh(\sqrt {\beta g} t )
+		\end{align*}
+		If $\beta$ is small, i.e. the air resistance is small then
+		\begin{align*}
+			\tanh(\sqrt{\beta g} t) \approx \sqrt{\beta g} t \\
+			\tanh x \approx x - \frac{x^3}{3} + \dots \\
+			w(t) \approx - gt \\
+			z = - \frac 1 2 g t^2
+		\end{align*}
+		For large $t$
+		\begin{align*}
+			w(t) \rightarrow - \sqrt{\frac g \beta}
+		\end{align*}
+		constant terminal velocity.
+		To work out $z(t)$ we have to integrate $w(t)$.
+	\end{ex}
+\end{itemize}
+
+
+
+
+

@@ -1,0 +1,260 @@
+\section{Lengths, Areas and Volumes}
+We already know that
+\begin{align*}
+\int_a^b f(x) ~dx
+\end{align*}
+represents the area under the graph $y=f(x)$ between $x=a$ and $x=b$. But sometimes we may want to compute the length of a graph between $x=a$ and $x=b$.
+\begin{align*}
+L = \int_a^b \sqrt{1+ (f'(x))^2} ~dx 
+\end{align*}
+or 
+\begin{align*}
+L = \int_a^b \sqrt{1+(y'(x))^2} ~dx
+\end{align*}
+
+Derivation:
+Consider a small segment of a graph.
+%picture 
+\begin{align*}
+\delta l = \sqrt{(\delta x)^2 + (\delta y)^2}
+\end{align*}
+and
+\begin{align*}
+\delta y = f'(x) \delta x \\
+\delta l \approx \sqrt{(\delta x)^2 + (f'(x) \delta x)^2} \\
+= \delta x \sqrt{1+(f'(x))^2}
+\end{align*}
+
+Adding up a large number of small segments
+\begin{align*}
+\to L = \int_a^b \sqrt{1+(f'(x))^2} ~ dx
+\end{align*}
+Because of the square root, length integrals can be difficult!
+
+\begin{nex}
+	\item
+	Length of a sine arch.
+	\begin{align*}
+	y' = \cos x \\
+	L = \int_0^\pi \sqrt{1+\cos^2 x} ~ dx
+	\end{align*}
+	\item
+	Length of a logarithmic curve
+	\begin{align*}
+	y = \log x \\
+	y' = \frac 1 x \\
+	L = \int_1^a \sqrt{1+\frac 1 {x^2}} ~dx \\
+	= \int_1^a \frac{\sqrt{x^2+1}}{x} ~dx \qquad x = \sinh u \\
+	\end{align*}
+	What about $x=\tan u$? $dx = \sec^2 du$
+	\begin{align*}
+	\int_1^a \frac{\sqrt{\tan^2 u +1}}{\tan u} \sec^2 u ~du \\
+	= \int_1^a \frac{\sec^3 u}{\tan u }~du \\
+	= \int_1^a \frac{du}{\sin u \cos^2u}
+	\end{align*}
+	postpone
+	try $x = \sinh u, dx = \cosh u du$
+	\begin{align*} 
+	\int_1^a \frac{\sqrt{x^2+1}}{x} ~dx= \int_1^a \frac{\cosh^2 u}{\sinh u} ~du \\
+	= \int_1^a \frac{1+\sinh^2 u}{\sinh u} ~du \\
+	= \int \left(\frac 1 {\sinh u} + \sinh u\right) ~du \\
+	= \log\left( \tanh \frac u 2 \right) + \cosh u + C \\
+	= \sqrt{1+x^2} + \log\left( \frac{\sinh {frac u 2}}{\cosh \frac u 2} \right) +C \\
+	= \sqrt{1+x^2} + \log \frac{\sinh\frac u 2\cos\frac u 2}{2\cosh^2\frac u 2} \\
+	= \sqrt{1+x^2} + \log \frac{sinh u}{1+\cosh u} +C \\
+	= \sqrt{1+x^2} + \log \frac x {1+\sqrt{1+x^2}} +C \\
+	L = \int_1^a \frac{\sqrt{1+x^2}} x~dx \\
+		= \sqrt{1+a^2} + \log\frac a {1+\sqrt{1+a^2}} -\sqrt 2 \log \frac 1 {\sqrt 2 +1} 
+		\end{align*}
+	to compute this recall
+	\begin{align*}
+	\int \frac {dx}{\sin x} = \log \left(\tan \frac x 2 \right)
+	\end{align*}
+\end{nex}
+
+Other integral formulas 
+\begin{align*}
+L = \int_a^b \sqrt{1+y'^2(x)} dx \\
+\end{align*}
+We rotated the graph $y=f(x)$ about the x-axis to give a surface a revolution. Area of surface of revolution.
+\begin{align*}
+A = 2\pi\int_a^b y(x) \sqrt{1+(y'(x))^2} ~dx
+\end{align*}
+
+\begin{nex}
+	\item
+	\begin{itemal}
+		y(x) = \cosh x
+	\end{itemal}
+	between $x=-1$ and $x=1$.
+\end{nex}
+
+Volume enclosed by the surface of revolution and $x=a$ and $x=b$ planes
+\begin{align*}
+V = \pi \int_a^b (y(x))^2 dx
+\end{align*}
+
+
+There are also alternative length formulas:
+for a parametrized curve:
+\begin{align*}
+x=x(t) \\
+y=y(t) \qquad t_< \le t \le t_b 
+\end{align*}
+For a cycloid for example
+\begin{align*}
+x(t) = t -\sin t \\
+y(t) = 1- \cos t
+\end{align*}
+Then the length is
+\begin{align*}
+L = \int_{t_a}^{t_b} \sqrt{\dot x^2 + \dot y^2} dt
+\end{align*}
+$\dot x$ denotes differentiation with respect to $t$.
+Polar form
+
+We can describe a curve via a polar equation 
+\begin{align*}
+r = r(\theta), \qquad \theta_a \le \theta \le \theta_b
+\end{align*}
+(eg
+\begin{align*}
+r = 1 + \cos \theta
+\end{align*}
+)
+\begin{align*}
+L = \int_{\theta_a}^{\theta_b} \sqrt{r^2(\theta) + r'^2(\theta)}~ \theta
+\end{align*}
+
+\begin{ex}
+	Consider the parabola
+	\begin{align*}
+	r = \frac 1 {1+\cos \theta}
+	\end{align*}
+	We want to calculate the length from $-\frac \pi 2 \le \theta \le \frac \pi 2$.
+	\begin{align*}
+		r' = \frac{\sin \theta}{(1+\cos \theta)^2} \\
+		r^2 + r'^2 = \frac 1 {(1+\cos \theta)^2} + \frac{\sin \theta}{(1+\cos \theta)^2} \\
+		= \frac{(1+\cos^2 \theta)^2 + \sin^2 \theta}{(1+ \cos \theta)^4} \\
+		= \frac 2 {(1+\cos \theta)^3} \\
+		L = -\sqrt 2 \int_{-\frac \pi 2}^{\frac \pi 2} \frac {d \theta}{(1+\cos \theta)^{\frac 3 2}}
+	\end{align*}
+		Use $u = \tan \frac \theta 2$ substitution:
+	\begin{align*}
+		\sqrt 2 \int_{-1}^{1} \frac{\frac{2du}{1+u^2}}{\left(1+\frac{1-u^2}{1+u^2} \right)^{\frac 3 2}} \\
+		= \sqrt 2 \int_{-1}^{1} \frac{2 du}{1+u^2} \frac 1 {\left( \frac 2 {1+u^2} \right)^{\frac 3 2}} \\
+		= \sqrt 2 2 \int_{-1}^{1} \frac{\sqrt{1+u^2} du}{2^{\frac 3 2}}
+	\end{align*}
+\end{ex}
+
+
+\subsection{Multiple Integration}
+
+
+A function of 2 variables  $f$ is a rule assigning a real number $f(x,y)$ to a pair of real numbers $(x,y)$. The domain of $f$ is a subset of $\R^2$. 
+
+We can consider the surface defined by $z = f(x,y)$.
+For example
+\begin{align*}
+f(x,y) = x^2 + y^2 
+\end{align*}
+The surface $z = x^2 +x^2$ (paraboloid)
+For one variable:
+\begin{align*}
+\int_a^b f(x) dx = \text{area under the graph } x=f(x) \\
+\int \int_S f(x,y) ~dx~dy 
+\end{align*}
+where $S \subseteq \R^2$ can be defined a the volume under the surface $ z = f(x,y)$ above $S$ in the $xy$-plane. If the surface falls below the $z=0$ plane, the volume counts negatively.
+\begin{ex}
+	\begin{align*}
+	\int \int_S \sqrt{1-x^2-y^2} ~dx~dy
+	\end{align*}
+	$S$ is the unit disc $x^2 + y^2 \le 1$.
+	\begin{align*}
+	z = \sqrt{1-x^2-y^2}
+	\end{align*}
+	is a hemisphere of unit radius ($x^2+y^2+z^2=1$). The volume of a sphere of radius $r$ is $\frac 4 3 \pi R^3$.
+	\begin{align*}
+	\int \int_S \sqrt{1-x^2-y^2} ~dx ~dy = \frac{2 \pi} 3
+	\end{align*}
+	half the volume of the unit sphere.
+	\begin{align*}
+	\int \int_S 1 ~dx ~dy
+	\end{align*}
+	gives us the area of $S$. Just as
+	\begin{align*}
+	\int_a^b 1 ~dx = b-a = L
+	\end{align*}
+	is the length of the interval. Integrating over a rectangle. the integral over the rectangle can be written as 
+	\begin{align*}
+	\int_c^d \left(\int_a^b f(x,y) ~dx\right) ~dx
+	\end{align*}
+	or
+	\begin{align*}
+	int_a^b \left( \int_c^d f(x,y) ~dy \right) ~dx
+	\end{align*}
+\end{ex}
+
+Both integrals agree (by Fubini's theorem).
+Without brackets write as 
+\begin{align*}
+\int_c^d dy \int_a^b f(x,y)
+\end{align*}
+or
+\begin{align*}
+\int_a^b dx \int_c^d dy f(x,y)
+\end{align*}
+1 variable can write
+\begin{align*}
+\int_{-\infty}^{\infty} dx e^{-x^2}
+\end{align*}
+instead of
+\begin{align*}
+\int_{-\infty}^{\infty} e^{-x^2} ~dx
+\end{align*}
+Can interate over
+\begin{align*}
+\int_{-\infty}^{\infty} dy \int_{-\infty}^{\infty} dx f(x,y)
+\end{align*}
+or
+\begin{align*}
+\int_{-\infty}^{\infty} dx \int_{-\infty}^{\infty} dy f(x,y)
+\end{align*}
+For one variable we can make a substitution or a change of variables. We can do this for multiple integrals (theory of Jacobians) -- for polar coordinates  it is quite simple. We want to compute
+\begin{align*}
+\int \int_f f(x,) ~dx~dy
+\end{align*}
+Suppose the boundary of $S$ can be represented as a polar curve.
+\begin{align*}
+r= h(\theta)
+\end{align*}
+and
+\begin{align*}
+f(x,y) = g(r,\theta), \qquad x = r \cos \theta, y = r \sin \theta 
+\end{align*}
+eg
+\begin{align*}
+f(x,y) = e^{-x^2-y^2} = e^{-r^2} \\
+g(r, \theta) = e^{-r^2} \\
+\int \int_S f(x,y) ~dx~dy \\
+= \int_0^{2 \pi} d \theta \int_0^{h(\theta)} dr~ r g(r,\theta)
+\end{align*}
+The element of area in polar coordinates $\delta A = r \delta r \delta \theta$ (cartesians $\delta A = \delta x \delta y$).
+\begin{align*}
+A = \int \int_S 1 ~dx~dy
+\end{align*}
+transform to polar coordinates to compute $A$. 
+Centroid $(\overline x, \overline y)$.
+\begin{align*}
+\overline x = \frac{\int \int_S ~dx ~dy}{\int \int_S dx dY} \\
+\overline y = \frac{\int \int _S y ~dx ~dy}{\int\int_S ~dx~dy}
+\end{align*}
+
+
+
+
+
+
+
+
+
